@@ -13,4 +13,11 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
     }
+    public function run()
+{
+    $this->call([
+        UsersTableSeeder::class,
+        // 他のシードファイルがあればここに追加
+    ]);
+}
 }
