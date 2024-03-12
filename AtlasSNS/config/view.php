@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 return [
 
     /*
@@ -34,3 +36,7 @@ return [
     ),
 
 ];
+
+Route::get('/', function () {
+    return view('welcome');
+});

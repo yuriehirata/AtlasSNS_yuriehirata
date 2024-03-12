@@ -40,24 +40,53 @@ class RegisterController extends Controller
     }
 
     public function register(Request $request){
-        if($request->isMethod('post')){
+    if($request->isMethod('post')){
+        // バリデーションルール
+        $rules = [
+            'username' => 'required|string|min:2|max:12',
+            'mail' => 'required|email|unique:users,mail|max:40',
+            'password' => 'required|string|regex:/^[a-zA-Z0-9]+$/|min:8|max:20|confirmed',
+        ];
 
-            $username = $request->input('username');
-            $mail = $request->input('mail');
-            $password = $request->input('password');
+        // バリデーションの実行
+        $validator = $request->validate($rules);
+        //エラーの中身を確認するデバック関数
+        //ddd($validator);
 
-            User::create([
-                'username' => $username,
-                'mail' => $mail,
-                'password' => bcrypt($password),
-            ]);
-
-            return redirect('added');
+        //バリデーションが失敗した時
+        if ($validator->fails()) {
+            return redirect('auth.register')
+                        ->withErrors($validator)
+                        ->withInput();
         }
-        return view('auth.register');
+
+        //バリデーションが成功した時
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+
+        User::create([
+            'username' => $username,
+            'mail' => $mail,
+            'password' => bcrypt($password),
+        ]);
+
+        //ユーザー名を保存
+        // Session::put('registered_username', $username);
+        // return redirect('added');
+
+
+
     }
 
-    public function added(){
+    return view('auth.register');
+
+}
+
+
+
+
+public function added(){
         return view('auth.added');
     }
 }
