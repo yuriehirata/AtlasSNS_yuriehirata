@@ -46,8 +46,30 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        //ログアウト中のページ
+        $this->mapGuestRoutes();
+　　　　　//ログイン中のページ
+        $this->mapAuthRoutes();
+
     }
+
+    // guest.phpルートファイルの設定です。
+protected function mapGuestRoutes()
+    {
+        // guest.phpの記述には制限を付けないので、middlewareにデフォルトの'web'のみを適用しています
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/guest.php'));     // ここでファイルのパスを設定しています
+    }
+
+// auth.phpルートファイルの設定です。
+protected function mapAuthRoutes()
+    {
+        // auth.phpでは認証されたユーザーのみアクセスできるようにします。
+        // そのため、middlewareに'auth'を記述しています。
+        Route::middleware('web', 'auth')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/auth.php'))
 
     /**
      * Define the "web" routes for the application.

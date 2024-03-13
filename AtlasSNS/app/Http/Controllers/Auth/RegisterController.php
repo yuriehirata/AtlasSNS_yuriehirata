@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Session;
 
 class RegisterController extends Controller
 {
@@ -54,11 +55,11 @@ class RegisterController extends Controller
         //ddd($validator);
 
         //バリデーションが失敗した時
-        if ($validator->fails()) {
-            return redirect('auth.register')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
+        // if ($validator->fails()) {
+        //     return redirect('auth.register')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
 
         //バリデーションが成功した時
         $username = $request->input('username');
@@ -70,23 +71,23 @@ class RegisterController extends Controller
             'mail' => $mail,
             'password' => bcrypt($password),
         ]);
+        //セッションにユーザー名を保存
+    Session::put('username', $username);
 
-        //ユーザー名を保存
-        // Session::put('registered_username', $username);
-        // return redirect('added');
-
-
-
+    return redirect('added');
     }
 
     return view('auth.register');
-
 }
 
-
-
-
+// public function added(){
+//         return view('auth.added');
+//     }
+// }
 public function added(){
-        return view('auth.added');
-    }
+    // 登録完了ページでユーザー名を表示
+    $registeredUsername = Session::get('username');
+//dd($registeredUsername);
+    return view('auth.added', ['registeredUsername' => $registeredUsername]);
+}
 }
