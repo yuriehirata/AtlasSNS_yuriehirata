@@ -22,17 +22,42 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
+        <h1><a href= "top"><img src="images/atlas.png" alt="AtlasSNS" class="logo"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </div>
+                    <p class="right-align">**さん
+                    <button class="menu-toggle" aria-controls="menu" aria-expanded="false"><span class="dli-chevron-up"></span></button></p>
+                <div class="menu" id="menu">
+                  <ul>
+                      <li><a href="/top"><p class="right-align">ホーム</p></a></li>
+                      <li><a href="/profile"><p class="right-align">プロフィール</p></a></li>
+                      <li><a href="/logout"><p class="right-align">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                        </form>
+<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><p class="right-align">ログアウト</p></a></li>
+
+                  </ul>
+                </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // メニュートグルボタンをクリックしたときの処理
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      // メニューを開閉する
+      document.getElementById('menu').classList.toggle('active');
+
+      // ボタンのアニメーション
+      this.classList.toggle('active');
+      this.classList.toggle('dli-chevron-down'); // 矢印を下向きにするクラスを追加
+      this.classList.toggle('dli-chevron-up');   // 矢印を上向きにするクラスを追加
+
+      // メニューが開いているかどうかを示すaria-expanded属性の値を切り替える
+      var expanded = this.getAttribute('aria-expanded') === 'true' || false;
+      this.setAttribute('aria-expanded', !expanded);
+    });
+});
+</script>
+
         </div>
     </header>
     <div id="row">
