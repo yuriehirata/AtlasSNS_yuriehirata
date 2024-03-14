@@ -24,7 +24,7 @@ header {
     display: inline-block;
     vertical-align: middle;
     color: #fff;
-    line-height: 1;
+    line-height: 2;
     width: 1em;
     height: 1em;
     border: 0.1em solid currentColor;
@@ -38,7 +38,7 @@ header {
     display: inline-block;
     vertical-align: middle;
     color: #fff;
-    line-height: 1;
+    line-height: 2;
     width: 1em;
     height: 1em;
     border: 0.1em solid currentColor;
@@ -48,6 +48,26 @@ header {
     transform: translateY(-25%) rotate(135deg);
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+li {
+    display: block;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 0px;
+    width: 20%;
+    background-color: #fff;
+}
+
+li:hover {
+    color: #fff;
+    background-color: #00008b;
+    /* マウスオン時の背景色 */
+}
 
 .right-align {
     text-align: right;

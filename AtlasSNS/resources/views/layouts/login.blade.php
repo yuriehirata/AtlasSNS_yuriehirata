@@ -32,9 +32,9 @@
                       <li><a href="/top"><p class="right-align">ホーム</p></a></li>
                       <li><a href="/profile"><p class="right-align">プロフィール</p></a></li>
                       <li><a href="/logout"><p class="right-align">ログアウト</p></a></li>
-
                   </ul>
                 </div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // メニュートグルボタンをクリックしたときの処理
@@ -67,14 +67,14 @@
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="followList">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>

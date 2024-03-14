@@ -46,11 +46,6 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-//         //ログアウト中のページ
-//         $this->mapGuestRoutes();
-// 　　　　　//ログイン中のページ
-//         $this->mapAuthRoutes();
-
     }
 
 //     // guest.phpルートファイルの設定です。

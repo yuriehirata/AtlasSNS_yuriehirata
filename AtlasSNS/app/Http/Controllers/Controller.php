@@ -21,11 +21,4 @@ class HomeController extends Controller
     }
 }
 
-// public function added(){
-//     // セッションから登録したユーザー名を取得
-//     $registeredUsername = Session::get('registered_username');
-
-//     // 登録完了ページに登録したユーザー名を渡して表示
-//     return view('auth.added', ['registeredUsername' => $registeredUsername]);
-// }
 ?>
