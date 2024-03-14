@@ -44,4 +44,9 @@ Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
 //ログアウト
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('/logout', function () {
+    // セッションを破棄
+    session()->flush();
+    // ログイン画面にリダイレクト
+    return redirect('/login');
+});

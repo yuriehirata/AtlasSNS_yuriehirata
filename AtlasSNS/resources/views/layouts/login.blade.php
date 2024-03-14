@@ -31,11 +31,7 @@
                   <ul>
                       <li><a href="/top"><p class="right-align">ホーム</p></a></li>
                       <li><a href="/profile"><p class="right-align">プロフィール</p></a></li>
-                      <li><a href="/logout"><p class="right-align">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                        </form>
-<a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><p class="right-align">ログアウト</p></a></li>
+                      <li><a href="/logout"><p class="right-align">ログアウト</p></a></li>
 
                   </ul>
                 </div>
