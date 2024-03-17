@@ -19,4 +19,24 @@ class Follow extends Model
   {
       return $this->where('followed_id','<>',  $user_id)->count();
   }
+  public function getFollowList($user_id)
+    {
+        return $this->where('following_id', $user_id)->get();
+    }
+
+    public function getFollowerList($user_id)
+    {
+        return $this->where('followed_id', $user_id)->get();
+    }
+
+    public function countFollowers($user_id)
+    {
+        return $this->where('followed_id', $user_id)->count();
+    }
+
+    public function countFollowing($user_id)
+    {
+        return $this->where('following_id', $user_id)->count();
+    }
+}
 }

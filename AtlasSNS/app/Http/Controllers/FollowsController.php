@@ -13,14 +13,20 @@ class FollowsController extends Controller
 {
     //
     public function followList(){
-        return view('follows.followList');
+        $followModel = new Follow();
+        $followList = $followModel->getFollowList(auth()->user()->id);
+        return view('follows.followList', ['followList' => $followList]);
+        // return view('follows.followList');
     }
     public function followerList(){
-        return view('follows.followerList');
+        $followModel = new Follow();
+        $followerList = $followModel->getFollowerList(auth()->user()->id);
+        $followerCount = $followModel->countFollowers(auth()->user()->id);
+        return view('follows.followerList', ['followerList' => $followerList, 'followerCount' => $followerCount]);
+        // return view('follows.followerList');
     }
-}
 
-public function show(User $user, Follow $follow)
+    public function show(User $user, Follow $follow)
     {
         $login_user = auth()->user();
         $is_following = $login_user->isFollowing($login_user->id);
@@ -36,3 +42,4 @@ public function show(User $user, Follow $follow)
             'follower_count' => $follower_count
         ]);
     }
+}
