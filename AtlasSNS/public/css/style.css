@@ -8,11 +8,23 @@ body {}
 header {
     background: #186AC9;
     margin-top: 5%;
+    margin-left: auto;
+    display: flex;
+    padding: 0% 10%;
+}
+
+head {
+    display: flex;
+}
+
+button {
+    background-color: transparent;
+    border: none;
 }
 
 /* タイトルロゴ */
 .logo {
-    max-width: 10%;
+    max-width: 30%;
     /* 最大幅を指定 */
     height: auto;
     /* 高さを自動調整 */
@@ -57,10 +69,11 @@ ul {
 li {
     display: block;
     border: 1px solid #ccc;
-    padding: 10px;
+    padding: 20%;
     margin-bottom: 0px;
-    width: 20%;
+    width: 10rem;
     background-color: #fff;
+    text-align: center;
 }
 
 li:hover {
@@ -76,6 +89,8 @@ li:hover {
 /* メニューのスタイル */
 .menu {
     display: none;
+    position: absolute;
+    right: 5%;
 }
 
 .menu.active {

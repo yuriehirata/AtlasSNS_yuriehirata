@@ -13,7 +13,10 @@
 <p class="subcontents">{{ Form::password('password',['class' => 'input']) }}</p>
 
 <p>{{ Form::submit('ログイン',['class' => 'btn']) }}</p>
-
+<br>
+<br>
+<br>
+<br>
 <p class="subcontents"><a href="/register">新規ユーザーの方はこちら</a></p>
 
 {!! Form::close() !!}

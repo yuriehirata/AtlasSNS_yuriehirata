@@ -23,14 +23,18 @@
     <header>
         <div id = "head">
         <h1><a href= "top"><img src="images/atlas.png" alt="AtlasSNS" class="logo"></a></h1>
+</div>
+
             <div id="">
                 <div id="">
-                    <p class="right-align">**さん
-                    <button class="menu-toggle" aria-controls="menu" aria-expanded="false"><span class="dli-chevron-up"></span></button></p>
+                    <div id = "head">
+                    <p class="right-align">{{ Auth::user()->username }}さん
+                    <button class="menu-toggle dli-chevron-down" aria-controls="menu" aria-expanded="false"></button></p>
+</div>
                 <div class="menu" id="menu">
                   <ul>
-                      <li><a href="/top"><p class="right-align">ホーム</p></a></li>
-                      <li><a href="/profile"><p class="right-align">プロフィール</p></a></li>
+                      <li><a href="/top"><p class="right-align">HOME</p></a></li>
+                      <li><a href="/profile"><p class="right-align">プロフィール編集</p></a></li>
                       <li><a href="/logout"><p class="right-align">ログアウト</p></a></li>
                   </ul>
                 </div>
