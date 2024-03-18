@@ -51,9 +51,11 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+Route::get('/sarch','PostsController@index');
 
 Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
 
+Route::get('/posts', 'BbsController@index');
 
 
 //ログアウト

@@ -8,8 +8,11 @@ body {}
 header {
     background: #186AC9;
     margin-top: 5%;
-    margin-left: auto;
     display: flex;
+    justify-content: space-between;
+    /* 要素を両端に配置 */
+    align-items: center;
+    /* 要素を垂直方向に中央揃え */
     padding: 0% 10%;
 }
 
