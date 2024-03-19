@@ -66,21 +66,22 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
                 <p>名</p>
                 </div>
-                <p class="btn"><a href="followList">フォローリスト</a></p>
+                <p ><a href="followList">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>名</p>
                 </div>
-                <p class="btn"><a href="followerList">フォロワーリスト</a></p>
+                <p><a href="followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="search">ユーザー検索</a></p>
+            <p class="btn-search"><a href="search">ユーザー検索</a></p>
         </div>
     </div>
+
     <footer>
     </footer>
     <script src="JavaScriptファイルのURL"></script>

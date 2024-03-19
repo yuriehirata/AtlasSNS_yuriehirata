@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemsController;
+use App\Post;
+use App\Follow;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,8 +29,11 @@
 // ログイン状態
 Route::group(['middleware' => 'auth'], function() {
 
-    // ユーザ関連
+// ユーザ関連
 Route::resource('users', 'UsersController');
+
+Route::post('/posts', 'PostsController@store')->name('post.index');
+
 
 
 });
@@ -53,9 +61,15 @@ Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 Route::get('/sarch','PostsController@index');
 
-Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
 
-Route::get('/posts', 'BbsController@index');
+Route::get('/', function () {
+    return view('layouts/app');
+});
+
+
+Route::post('/posts', 'PostsController@index')->name('posts.index');
+Route::post('/top', 'PostsController@store');
+
 
 
 //ログアウト

@@ -14,25 +14,31 @@
 
 <!-- 適切なURLを入力してください -->
 {!! Form::open(['url' => '/register']) !!}
+<br>
+<br>
+<br>
+<div class=transparent-border>
+    <br>
+<h2 class="contents">新規ユーザー登録</h2>
 
-<h2>新規ユーザー登録</h2>
-
-{{ Form::label('ユーザー名') }}
-{{ Form::text('username',null,['class' => 'input']) }}
-
-{{ Form::label('メールアドレス') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード') }}
-{{ Form::text('password',null,['class' => 'input']) }}
-
-{{ Form::label('パスワード確認') }}
-{{ Form::text('password_confirmation',null,['class' => 'input']) }}
-
-{{ Form::submit('登録') }}
-
-<p><a href="/login">ログイン画面へ戻る</a></p>
-
+<p class="contents-title">{{ Form ::label('ユーザー名') }}</p>
+<p class="subcontents">{{ Form::text('username',null,['class' => 'input']) }}</p>
+<br>
+<p class="contents-title">{{ Form::label('メールアドレス') }}</p>
+<p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
+<br>
+<p class="contents-title">{{ Form::label('パスワード') }}</p>
+<p class="subcontents">{{ Form::text('password',null,['class' => 'input']) }}</p>
+<br>
+<p class="contents-title">{{ Form::label('パスワード確認') }}</p>
+<p class="subcontents">{{ Form::text('password_confirmation',null,['class' => 'input']) }}
+<br>
+<p class="btn">{{ Form::submit('登録') }}</p>
+<br>
+<br>
+<br>
+<p class="subcontents"><a href="/login">ログイン画面へ戻る</a></p>
+</div>
 {!! Form::close() !!}
 
 
