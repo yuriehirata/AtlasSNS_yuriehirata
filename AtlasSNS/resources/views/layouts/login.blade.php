@@ -71,12 +71,12 @@
                 <p>フォロー数</p>
                 <p>名</p>
                 </div>
-                <p ><a href="followList">フォローリスト</a></p>
+                <p class="btn-search"><a href="followList">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>名</p>
                 </div>
-                <p><a href="followerList">フォロワーリスト</a></p>
+                <p class="btn-search"><a href="followerList">フォロワーリスト</a></p>
             </div>
             <p class="btn-search"><a href="search">ユーザー検索</a></p>
         </div>

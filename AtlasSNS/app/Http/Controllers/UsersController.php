@@ -27,4 +27,5 @@ class UsersController extends Controller
             'all_users'  => $all_users
         ]);
     }
+
 }

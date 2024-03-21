@@ -139,6 +139,22 @@ li:hover {
     margin: 0px;
 }
 
+.btn-danger {
+    ax-width: 20%;
+    /* 最大幅を指定 */
+    height: auto;
+    /* 高さを自動調整 */
+    margin: 0px;
+}
+
+.buttonClass {
+    max-width: 20%;
+    /* 最大幅を指定 */
+    height: auto;
+    /* 高さを自動調整 */
+    margin: 0px;
+}
+
 .btn-search {
     background-color: #186AC9;
     /* 赤地 */
@@ -190,4 +206,12 @@ li:hover {
 .table {
     text-align: center;
     margin: auto;
+}
+
+.icon {
+    max-width: 40px;
+    /* 最大幅を指定 */
+    height: 40px;
+    /* 高さを自動調整 */
+    margin: 10px;
 }
