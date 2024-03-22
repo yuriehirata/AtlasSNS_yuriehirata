@@ -46,28 +46,30 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
-Route::get('/top', 'PostsController@index');
+Route::get('/top', 'PostsController@index')->name('top');
 
 Route::get('/profile', 'UsersController@profile');
 
 Route::get('/search', 'UsersController@index');
 
-Route::get('/follow-list', 'PostsController@index');
-Route::get('/follower-list', 'PostsController@index');
-Route::get('/sarch', 'PostsController@index');
+Route::get('/followList', 'FollowsController@show');
+Route::get('/followerList', 'FollowsController@show');
+Route::get('/search', 'UsersController@search');
 
 Route::get('/', function () {
     return view('layouts/app');
 });
 
-Route::post('/posts', 'PostsController@index')->name('posts.index');
-Route::post('/top', 'PostsController@store');
+Route::post('/posts', 'PostsController@store');
 
-Route::get('/post/{id}/index', 'PostsController@index');
 Route::put('/posts/{id}', 'PostsController@update')->name('posts.update');
 
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::post('/profile/update', 'ProfileController@update');
+
+// Route::get('/followlist', 'FollowsController@followList');
+// Route::get('/followerlist', 'FollowsController@followerList');
+
 
 //ログアウト
 Route::get('/logout', function () {

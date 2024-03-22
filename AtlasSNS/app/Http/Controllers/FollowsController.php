@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Follow;
+use App\User;
 
 class FollowsController extends Controller
 {
@@ -16,7 +17,10 @@ class FollowsController extends Controller
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
 
-        return view('login', [
+        return view('follows.followList', [
+            'user'           => $user,
+            'is_following'   => $is_following,
+            'is_followed'    => $is_followed,
             'follow_count'   => $follow_count,
             'follower_count' => $follower_count
         ]);

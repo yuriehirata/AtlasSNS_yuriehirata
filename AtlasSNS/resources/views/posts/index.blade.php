@@ -2,12 +2,11 @@
 
 @section('content')
     <div class="container">
-        {!! Form::open(['url' => '/top']) !!}
+        {!! Form::open(['url' => '/posts']) !!}
         {{Form::token()}}
         <div class="form-group" style="display: flex;">
-            <img src="images/icon1.png" alt="ユーザーアイコン" class="icon">
-            {!! Form::input('text', 'userName', auth()->user()->username, ['readonly', 'class' => 'form-control', 'style' => 'padding: 0; margin: 0; flex: 1;', 'placeholder' => 'ユーザーネーム']) !!}
-            {!! Form::input('text', 'content', old('content'), ['required', 'class' => 'form-control', 'style' => 'padding: 0; margin: 0; flex: 3;', 'placeholder' => '投稿内容を入力してください。']) !!}
+            <img src="images/icon1.png" alt="{{ auth()->user()->username }}" class="icon">
+            {!! Form::input('text', 'content', null, ['required', 'class' => 'form-control', 'style' => 'padding: 0; margin: 0; flex: 3;', 'placeholder' => '投稿内容を入力してください。']) !!}
             <button type="submit" class="btn btn-success"><img src="images/post.png" class="btn btn-post" alt="投稿"></button>
         </div>
         {!! Form::close() !!}

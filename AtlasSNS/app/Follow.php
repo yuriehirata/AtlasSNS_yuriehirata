@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Follow extends Model
 {
     protected $fillable = [
@@ -38,5 +39,4 @@ class Follow extends Model
     {
         return $this->where('following_id', $user_id)->count();
     }
-}
 }

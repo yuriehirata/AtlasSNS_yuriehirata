@@ -4,8 +4,8 @@
 
 <!-- 検索フォーム -->
 <form action="/search" method="GET">
-    <input type="text" name="query" placeholder="検索キーワードを入力してください">
-    <button type="submit">検索</button>
+    <input type="text" name="query" placeholder="ユーザー名">
+    <button type="submit"><img src="images/search.png" class="btn btn-post" alt="検索"></button>
 </form>
 
 

@@ -3,8 +3,6 @@
 @section('content')
 {{-- followList.blade.php --}}
 
-@foreach ($followList as $follow)
-    <!-- フォローリストの表示 -->
-@endforeach
+フォローリストページ
 
 @endsection

@@ -25,6 +25,7 @@ public function store(Request $request)
         'content' => 'required', // 投稿内容が必須
     ];
 
+
     // バリデーションを実行
     $validator = Validator::make($request->all(), $rules);
 
@@ -40,7 +41,7 @@ public function store(Request $request)
 
     // データベースに投稿内容を保存
     $newPost = Post::create([
-        'content' => $request->content,
+        'post' => $request -> content,
         'user_id' => $user_id, // ログインしているユーザーのIDをセット
     ]);
 
