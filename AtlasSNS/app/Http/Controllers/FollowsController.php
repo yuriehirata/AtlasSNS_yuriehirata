@@ -25,4 +25,19 @@ class FollowsController extends Controller
             'follower_count' => $follower_count
         ]);
     }
+
+    public function followerList(User $user, Follow $follow)
+    {
+        // ログインユーザーを取得
+        $login_user = auth()->user();
+
+        // フォロワーリストを取得
+        $follower_list = $follow->getFollowerList($user->id);
+
+        // ビューにデータを渡して表示
+        return view('follows.followerList', [
+            'user'          => $user,
+            'follower_list' => $follower_list
+        ]);
+    }
 }
