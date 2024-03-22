@@ -62,7 +62,7 @@ Route::get('/', function () {
 
 Route::post('/posts', 'PostsController@store');
 
-Route::put('/posts/{id}', 'PostsController@update')->name('posts.update');
+Route::post('/posts/{id}', 'PostsController@updateForm')->name('posts.update');
 
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::post('/profile/update', 'ProfileController@update');

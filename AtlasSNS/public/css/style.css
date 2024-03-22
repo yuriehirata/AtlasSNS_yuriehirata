@@ -107,6 +107,20 @@ li:hover {
     display: block;
 }
 
+/* モーダル */
+.modal_menu {
+    display: none;
+}
+
+.modal_menu.active {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* main content */
 #row {

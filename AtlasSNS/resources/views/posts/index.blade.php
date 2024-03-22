@@ -15,6 +15,7 @@
         @if(session('newPost'))
             <?php $newPost = session('newPost'); ?>
             @if($newPost)
+            　@foreach($newPost->sortByDesc('created_at') as $post)
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ $newPost->username }}</h5>
@@ -22,17 +23,18 @@
                         <p class="card-text">{{ $newPost->created_at }}</p>
                     </div>
                 </div>
+            　@endforeach
             @endif
         @endif
 
         <table class="table table-hover">
-            <tr>
+            <!-- <tr>
                 <th>ユーザーネーム</th>
                 <th>投稿内容</th>
                 <th>投稿時間</th>
                 <th></th>
                 <th></th>
-            </tr>
+            </tr> -->
             @foreach ($posts as $post)
                 <tr>
                     <td>{{ $post->username }}</td>
@@ -40,29 +42,27 @@
                     <td>{{ $post->created_at }}</td>
                     <td>
                         <!-- 自分の投稿のみ編集ボタンを表示 -->
-                        @if($post->user_id == auth()->id())
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $post->id }}">
-                                編集
-                            </button>
-                        @endif
+                @if($post->user_id == auth()->id())
+                    <td>
+                    <!-- モーダルを開くボタン -->
+                    <button id="open_modal_button" aria-controls="modal_menu" aria-expanded="false"><img src="images/edit.png" alt="更新" class="btn"></button></td>
                     </td>
-                    <td><a href="/posts"><img src="images/edit.png" alt="更新" class="btn btn-primary"></a></td>
+                    <!-- モーダル -->
+                    <div class="modal_menu" id="modal_menu">
+                    <textarea class="form-control" id="post-content" name="content" rows="10" required></textarea>
+                   <!-- モーダルを閉じるボタン -->
+                    <button id="close_modal_button" aria-controls="modal_menu" aria-expanded="false">
+                    <img src="images/edit.png" alt="閉じる" class="btn">
+                    </button>
+                    </div>
                     <td>
                         <a href="/post/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか?')">
                             <img src="images/trash.png" alt="削除" class="btn" id="deleteButton{{$post->id}}" onmouseover="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash-h.png' )" onmouseout="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash.png')">
                         </a>
                     </td>
+                @endif
                 </tr>
             @endforeach
         </table>
     </div>
 @endsection
-
-<script>
-    function changeImageAndStyle(elementId, newImageSrc) {
-        var element = document.getElementById(elementId);
-        element.src = newImageSrc;
-        element.classList.remove("btn");
-        element.classList.add("btn");
-    }
-</script>
