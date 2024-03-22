@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->Where('id', '<>', $user_id)->paginate(5);
     }
 
+    public function follows()
+    {
+        return $this->hasMany(Follow::class, 'following_id');
+    }
+
     public function follow($user_id)
     {
         return $this->follows()->attach($user_id);

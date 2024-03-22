@@ -38,7 +38,14 @@
                     <td>{{ $post->username }}</td>
                     <td>{{ $post->post }}</td>
                     <td>{{ $post->created_at }}</td>
-                    <td></td>
+                    <td>
+                        <!-- 自分の投稿のみ編集ボタンを表示 -->
+                        @if($post->user_id == auth()->id())
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal{{ $post->id }}">
+                                編集
+                            </button>
+                        @endif
+                    </td>
                     <td><a href="/posts"><img src="images/edit.png" alt="更新" class="btn btn-primary"></a></td>
                     <td>
                         <a href="/post/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか?')">

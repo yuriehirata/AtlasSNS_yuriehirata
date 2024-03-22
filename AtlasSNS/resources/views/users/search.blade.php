@@ -8,6 +8,11 @@
     <button type="submit"><img src="images/search.png" class="btn btn-post" alt="検索"></button>
 </form>
 
+<!-- 検索ワードの表示 -->
+@if(request()->input('query'))
+    <p>検索ワード: {{ request()->input('query') }}</p>
+@endif
+
 <!-- 検索結果の表示 -->
 <div>
     <h2>検索結果</h2>
