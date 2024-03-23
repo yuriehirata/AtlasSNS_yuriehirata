@@ -65,6 +65,13 @@ $('.js-modal-close').on('click', function () {
   return false;
 });
 
+function changeImageAndStyle(elementId, newImageSrc) {
+  var element = document.getElementById(elementId);
+  if (element) {
+    element.src = newImageSrc;
+  }
+}
+
 
 //   // 背景部分や閉じるボタン(js-modal-close)が押されたら発火
 //   $('.js-modal-close').on('click', function () {

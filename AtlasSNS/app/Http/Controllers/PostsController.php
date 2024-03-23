@@ -10,13 +10,13 @@ class PostsController extends Controller
 {
 
     public function index()
-    {
-        // 投稿一覧を取得
-        $posts = Post::all();
+{
+    // 投稿一覧を作成日時で降順にソートして取得
+    $posts = Post::orderBy('created_at', 'desc')->get();
 
-        // index.blade.php ページにデータを渡して表示
-        return view('posts.index', compact('posts'));
-    }
+    // index.blade.php ページにデータを渡して表示
+    return view('posts.index', compact('posts'));
+}
 
     public function store(Request $request)
     {

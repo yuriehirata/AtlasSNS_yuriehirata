@@ -9,6 +9,7 @@ header {
     background: #186AC9;
     /* margin-top: 5%; */
     display: flex;
+    padding-top: 1px;
     justify-content: space-between;
     /* 要素を両端に配置 */
     align-items: center;
@@ -101,6 +102,7 @@ li:hover {
     display: none;
     position: absolute;
     right: 5%;
+    top: 10%;
 }
 
 .menu.active {
@@ -108,52 +110,10 @@ li:hover {
 }
 
 /* モーダル */
-/* .modal_menu {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    background-color: #fff;
-    margin: 10 10 10 30px;
-}
-
-.modal_menu.active {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    background-color: #fff;
-    margin: 10 10 10 30px;
-}
-
-.close_modal_button {
-    background-color: #fff;
-    padding: 5px 10px;
-}
-
-.modal-overlay {
-    display: ;
-}
-
-.modal-overlay.active {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    /* 半透明の黒色 */
-/* z-index: 999; */
-/* モーダルよりも下のレイヤーにするためのz-index値 */
-/* } */
 
 .content {
     margin: 0 auto;
-    padding: 40px;
+    padding: 0%;
 }
 
 .modal {
@@ -205,11 +165,33 @@ li:hover {
 }
 
 .btn {
-    max-width: 20%;
+    width: 30px;
     /* 最大幅を指定 */
     height: auto;
     /* 高さを自動調整 */
     margin: 0px;
+    border-radius: 5px;
+}
+
+.trash-btn {
+    width: 30px;
+    height: auto;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+.btn-success {
+    width: 30px;
+    height: auto;
+    margin: 0 80px;
+    border-radius: 5px;
+}
+
+.btn-post {
+    width: 30px;
+    height: auto;
+    margin: 0px;
+    border-radius: 5px;
 }
 
 .btn-danger {
@@ -226,6 +208,33 @@ li:hover {
     height: auto;
     /* 高さを自動調整 */
     margin: 0px;
+}
+
+.posts {
+    display: flex;
+}
+
+.post-user {
+    text-align: left;
+    font-size: small;
+    font-weight: bold;
+}
+
+.post-contents {
+    text-align: left;
+    font-size: small;
+    width: 70%;
+}
+
+.post-time {
+    text-align: right;
+    font-size: smaller;
+}
+
+.posts-btn {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-end;
 }
 
 .btn-search {
