@@ -41,26 +41,29 @@
                     <td>{{ $post->post }}</td>
                     <td>{{ $post->created_at }}</td>
                     <td>
-                        <!-- 自分の投稿のみ編集ボタンを表示 -->
-                @if($post->user_id == auth()->id())
-                    <td>
-                    <!-- モーダルを開くボタン -->
-                    <button id="open_modal_button" aria-controls="modal_menu" aria-expanded="false"><img src="images/edit.png" alt="更新" class="btn"></button></td>
-                    </td>
-                    <!-- モーダル -->
-                    <div class="modal_menu" id="modal_menu">
-                    <textarea class="form-control" id="post-content" name="content" rows="10" required></textarea>
-                   <!-- モーダルを閉じるボタン -->
-                    <button id="close_modal_button" aria-controls="modal_menu" aria-expanded="false">
-                    <img src="images/edit.png" alt="閉じる" class="btn">
-                    </button>
-                    </div>
-                    <td>
-                        <a href="/post/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか?')">
-                            <img src="images/trash.png" alt="削除" class="btn" id="deleteButton{{$post->id}}" onmouseover="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash-h.png' )" onmouseout="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash.png')">
-                        </a>
-                    </td>
-                @endif
+
+                <!-- 自分の投稿のみ編集ボタンを表示 -->
+@if($post->user_id == auth()->id())
+    <td>
+        <!-- モーダルを開くボタン -->
+        <button class="open_modal_button" data-post-id="{{ $post->id }}" value="modal_menu_{{ $post->post }}" aria-expanded="false"><img src="images/edit.png" alt="更新" class="btn"></button>
+    </td>
+    <!-- モーダル -->
+    <div class="modal-overlay" id="modal_overlay_{{ $post->id }}"></div>
+    <div class="modal_menu" id="modal_menu_{{ $post->id }}">
+        <textarea class="form-control" id="post-content_{{ $post->post }}" name="content" rows="10" required value="{{$post->post}}"></textarea>
+       <!-- モーダルを閉じるボタン -->
+        <button class="close_modal_button" data-post-id="{{ $post->id }}" aria-controls="modal_menu_{{ $post->id }}" aria-expanded="false">
+            <img src="images/edit.png" alt="閉じる" class="btn">
+        </button>
+    </div>
+    <td>
+        <a href="/post/{{$post->id}}/delete" onclick="return confirm('この投稿を削除します。よろしいでしょうか?')">
+            <img src="images/trash.png" alt="削除" class="btn" id="deleteButton{{$post->id}}" onmouseover="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash-h.png' )" onmouseout="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash.png')">
+        </a>
+    </td>
+@endif
+
                 </tr>
             @endforeach
         </table>
