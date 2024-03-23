@@ -20,12 +20,14 @@ class UsersTableSeeder extends Seeder
             [
                 'username' => 'user1',
                 'email' => 'user1@example.com',
-                'password' => Hash::make('password1') // パスワードをハッシュ化
+                'password' => Hash::make('password1'), // パスワードをハッシュ化
+                'images' => 'images/icon1.png'
             ],
             [
                 'username' => 'user2',
                 'email' => 'user2@example.com',
-                'password' => Hash::make('password2') // パスワードをハッシュ化
+                'password' => Hash::make('password2'), // パスワードをハッシュ化
+                'images' => 'images/icon1.png'
             ],
             // 追加のユーザーを必要に応じてここに追加
         ];

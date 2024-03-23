@@ -25,7 +25,7 @@ public function update(Request $request)
     if ($request->password) {
         $username->password = bcrypt($request->password);
     }
-    $user->save();
+    $username->save();
     return redirect('/profile')->with('success', 'プロフィールを更新しました。');
 }
 

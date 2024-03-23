@@ -22,23 +22,20 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href= "top"><img src="images/atlas.png" alt="AtlasSNS" class="logo"></a></h1>
-</div>
-
-            <div id="">
-                <div id="">
+        <a href= "top"><img src="images/atlas.png" alt="AtlasSNS" class="logo"></a>
+        </div>
                     <div id = "head">
                     <p class="right-align">{{ Auth::user()->username }}さん
                     <button class="menu-toggle dli-chevron-down" aria-controls="menu" aria-expanded="false"></button></p>
-</div>
-                <div class="menu" id="menu">
+                    </div>
+                <div class="menu head" id="menu">
                   <ul>
                       <li><a href="/top"><p>HOME</p></a></li>
                       <li><a href="/profile"><p>プロフィール編集</p></a></li>
                       <li><a href="/logout"><p>ログアウト</p></a></li>
                   </ul>
                 </div>
-        </div>
+        <div id = "head"><img src="" alt="{{ auth()->user()->username }}" class="icon"></div>
     </header>
     <div id="row">
         <div id="container">
@@ -64,7 +61,7 @@
 
     <footer>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('/js/sns.js') }}"></script>
-    <script src="JavaScriptファイルのURL"></script>
 </body>
 </html>

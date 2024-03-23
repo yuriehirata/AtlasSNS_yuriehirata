@@ -13,12 +13,12 @@ header {
     /* 要素を両端に配置 */
     align-items: center;
     /* 要素を垂直方向に中央揃え */
-    padding: 0% 10%;
+    /* padding: 0% 10%; */
 }
 
-head {
+/* head {
     display: flex;
-}
+} */
 
 button {
     background-color: transparent;
@@ -108,7 +108,7 @@ li:hover {
 }
 
 /* モーダル */
-.modal_menu {
+/* .modal_menu {
     display: none;
     position: absolute;
     top: 50%;
@@ -147,8 +147,38 @@ li:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     /* 半透明の黒色 */
-    z-index: 999;
-    /* モーダルよりも下のレイヤーにするためのz-index値 */
+/* z-index: 999; */
+/* モーダルよりも下のレイヤーにするためのz-index値 */
+/* } */
+
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
 }
 
 /* main content */

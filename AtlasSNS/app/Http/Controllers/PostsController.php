@@ -18,8 +18,8 @@ class PostsController extends Controller
         return view('posts.index', compact('posts'));
     }
 
-public function store(Request $request)
-{
+    public function store(Request $request)
+    {
     // バリデーションルールを定義
     $rules = [
         'content' => 'required', // 投稿内容が必須
@@ -47,7 +47,7 @@ public function store(Request $request)
 
     // 投稿内容を保存した後、ページにリダイレクト
     return redirect()->route('top')->with('newPost', $newPost);
-}
+    }
 
 
     public function updateForm($id)
@@ -56,11 +56,11 @@ public function store(Request $request)
         return view('posts.index', ['post' => $post]);
     }
 
-    public function update(Request $request, $id)
-{
+    public function update(Request $request)
+    {
     // バリデーションルールを定義
     $rules = [
-        'userName' => 'required|max:150', // 最大文字数150を指定
+        'message' => 'required|max:150', // 最大文字数150を指定
         'content' => 'required', // 投稿内容が必須
     ];
 
@@ -75,13 +75,24 @@ public function store(Request $request)
     }
 
     // 対象の投稿を取得
-    $post = Post::findOrFail($id);
+    $post_id = Post::findOrFail($id);
 
     // 投稿内容を更新
-    $post->content = $request->content;
-    $post->save();
+    $post_id->content = $request->content;
+    $post_id->save();
 
     // 更新した投稿のページにリダイレクト
     return redirect()->route('top');
-}
+
+    }
+
+    //投稿を削除
+    public function delete($id)
+    {
+        Post::where('id', $id)->delete();
+        return redirect('/top');
+    }
+
+
+
 }

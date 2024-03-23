@@ -67,6 +67,10 @@ Route::post('/posts/{id}', 'PostsController@updateForm')->name('posts.update');
 Route::get('/profile/edit', 'ProfileController@edit');
 Route::post('/profile/update', 'ProfileController@update');
 
+Route::post('/posts/update', 'PostController@update');
+
+Route::get('/post/{id}/delete', 'PostsController@delete');
+
 // Route::get('/followlist', 'FollowsController@followList');
 // Route::get('/followerlist', 'FollowsController@followerList');
 
