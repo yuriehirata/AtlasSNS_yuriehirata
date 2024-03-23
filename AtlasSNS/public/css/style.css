@@ -110,16 +110,25 @@ li:hover {
 /* モーダル */
 .modal_menu {
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
 }
 
 .modal_menu.active {
     display: block;
-    cursor: pointer;
     position: absolute;
-    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+.close_modal_button {
+    background-color: #fff;
+    padding: 5px 10px;
 }
 
 /* main content */
