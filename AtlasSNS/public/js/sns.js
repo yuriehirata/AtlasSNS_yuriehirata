@@ -32,37 +32,53 @@ $(function () {
     $('.modal_post').val(post);
     // 取得した投稿のidをモーダルの中身へ渡す
     $('.modal_id').val(post_id);
+
     return false;
   });
 });
 
-// モーダル内でのフォームの送信処理
-function submitModalForm() {
-  // フォームデータを取得
-  var formData = $('.modal_form').serialize();
+// // モーダル内でのフォームの送信処理
+// function submitModalForm() {
+//   // フォームデータを取得
+//   var formData = $('.modal_form').serialize();
 
-  // フォームデータをサーバーに送信
-  $.ajax({
-    url: '/posts/update', // 送信先のURLを指定
-    type: 'POST', // POSTリクエストを送信
-    data: formData, // フォームデータを送信
-    success: function (response) {
-      // 送信が成功した場合の処理
-      console.log('Form submitted successfully!');
-      // 必要な処理を追加
-    },
-    error: function (xhr, status, error) {
-      // 送信が失敗した場合の処理
-      console.error('Form submission failed:', error);
-      // 必要なエラー処理を追加
-    }
-  });
-}
+//   // 更新処理の定義
+//   function updatePost(postId) {
+//     // フォームデータをサーバーに送信
+//     $.ajax({
+//       url: '/posts/update', // 送信先のURLを指定
+//       type: 'POST', // POSTリクエストを送信
+//       data: formData, // フォームデータを送信
+//       success: function (response) {
+//         // 送信が成功した場合の処理
+//         console.log('Form submitted successfully!');
+//         // 必要な処理を追加
+//       },
+//       error: function (xhr, status, error) {
+//         // 送信が失敗した場合の処理
+//         console.error('Form submission failed:', error);
+//         // 必要なエラー処理を追加
+//       }
+//     });
+//   }
+
+// 更新処理を呼び出す
+// updatePost({{ $post-> id }});
+// }
+
+
+
+// // 更新処理を呼び出す
+// updatePost();
+// }
+
 
 // 背景部分や閉じるボタン(js-modal-close)が押されたらモーダルを閉じる処理を実行
-$('.js-modal-close').on('click', function () {
-  $('.js-modal').fadeOut();
-  return false;
+$(function () {
+  $('.js-modal-close').on('click', function () {
+    $('.js-modal').fadeOut();
+    return false;
+  });
 });
 
 function changeImageAndStyle(elementId, newImageSrc) {

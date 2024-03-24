@@ -29,14 +29,14 @@ class UsersController extends Controller
                      ->get();
     } else {
         // 検索クエリがない場合は、自分以外の全ユーザーを取得
-        $users = User::where('username', '!=', auth()->id())->get();
+        $users = User::where('id', '!=', auth()->id())->get();
     }
 
     // 検索結果をビューに渡して表示
     return view('users.search', compact('users'));
 }
 
-    public function index(User $user)
+    public function userssearch(User $user)
     {
         $all_users = $user->getAllUsers(auth()->user()->id);
 

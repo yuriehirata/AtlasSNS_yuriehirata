@@ -17,14 +17,25 @@
 <div>
     <h2>検索結果</h2>
 @if(!is_null($users) && count($users) > 0)
-    <ul>
         @foreach($users as $user)
-            <li>
-                <img src="{{ $user->icon }}" alt="ユーザーアイコン">
-                <span>{{ $user->name }}</span>
-            </li>
+                <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon">
+                <span>{{ $user->username }}</span>
+                    @if(auth()->user()->isFollowing($user->id))
+                        {{-- フォロー解除ボタン --}}
+                        <form action="{{ route('unfollow') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="followed_id" value="{{ $user->id }}">
+                        <button type="submit" class="unfollow_btn">フォロー解除</button>
+                        </form>
+                        @else
+                        {{-- フォローボタン --}}
+                        <form action="{{ route('follow') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="followed_id" value="{{ $user->id }}">
+                        <button type="submit" class="follow_btn">フォローする</button>
+                        </form>
+                    @endif
         @endforeach
-    </ul>
 @else
     <p>該当するユーザーが見つかりませんでした。</p>
 @endif

@@ -14,6 +14,7 @@ class PostsController extends Controller
     // 投稿一覧を作成日時で降順にソートして取得
     $posts = Post::orderBy('created_at', 'desc')->get();
 
+
     // index.blade.php ページにデータを渡して表示
     return view('posts.index', compact('posts'));
 }
@@ -55,32 +56,38 @@ class PostsController extends Controller
         $post = Post::where('id', $id)->first();
         return view('posts.index', ['post' => $post]);
     }
-
     public function update(Request $request)
     {
-    // バリデーションルールを定義
-    $rules = [
-        'message' => 'required|max:150', // 最大文字数150を指定
-        'content' => 'required', // 投稿内容が必須
-    ];
+        //バリデーションルールを定義
+        $rules = [
+            'message' => 'required|max:150', // 最大文字数150を指定
+            'content' => 'required', // 投稿内容が必須
+        ];
 
-    // バリデーションを実行
-    $validator = Validator::make($request->all(), $rules);
+        // バリデーションを実行
+        $validator = Validator::make($request->all(), $rules);
 
-    // バリデーションに失敗した場合
-    if ($validator->fails()) {
-        return redirect()->back()
-                    ->withErrors($validator)
-                    ->withInput();
-    }
+        // // バリデーションに失敗した場合
+        // if ($validator->fails()) {
+            //     return redirect()->back()
+            //     ->withErrors($validator)
+            //     ->withInput();
+            // }
 
-    // 対象の投稿を取得
-    $post_id = Post::findOrFail($id);
+            // 対象の投稿を取得
+            //     $post_id = Post::findOrFail($id);
 
-    // 投稿内容を更新
-    $post_id->content = $request->content;
-    $post_id->save();
+            //     // 投稿内容を更新
+            //     $post_id->content = $request->content;
+            //     dd($validator);
+            // $post_id->save();
 
+            $id = $request->input('post_id');
+            $content = $request->input('content');
+
+    Post::where('id',$id)->update([
+        'post' => $content
+    ]);
     // 更新した投稿のページにリダイレクト
     return redirect()->route('top');
 

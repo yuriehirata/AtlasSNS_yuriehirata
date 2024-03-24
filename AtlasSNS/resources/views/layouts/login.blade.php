@@ -35,7 +35,7 @@
                       <li><a href="/logout"><p>ログアウト</p></a></li>
                   </ul>
                 </div>
-        <div id = "head"><img src="" alt="{{ auth()->user()->username }}" class="icon"></div>
+        <div id = "head"><img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon"></div>
     </header>
     <div id="row">
         <div id="container">

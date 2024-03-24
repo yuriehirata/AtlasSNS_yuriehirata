@@ -45,10 +45,8 @@ class FollowsController extends Controller
     // ユーザーをフォローする
     public function follow(Request $request)
     {
-        $follow = Follow::create([
-            'following_id' => auth()->user()->id,
-            'followed_id' => $request->followed_id,
-        ]);
+        $user_id_to_follow = $request->input('followed_id');
+        auth()->user()->follow($user_id_to_follow);
 
         return redirect()->back()->with('success', 'ユーザーをフォローしました');
     }
@@ -56,9 +54,8 @@ class FollowsController extends Controller
     // フォローを解除する
     public function unfollow(Request $request)
     {
-        $follow = Follow::where('following_id', auth()->user()->id)
-                        ->where('followed_id', $request->followed_id)
-                        ->delete();
+        $user_id_to_unfollow = $request->input('followed_id');
+        auth()->user()->unfollow($user_id_to_unfollow);
 
         return redirect()->back()->with('success', 'フォローを解除しました');
     }
