@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
 use Illuminate\Support\Facades\Validator;
+use App\Post;
+use App\Follow;
 
 class PostsController extends Controller
 {
@@ -100,6 +101,15 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
+        public function show()
+    {
+        // フォローしているユーザーのidを取得
+        $following_id = Auth::user()->follows()->pluck('following_id');
+        // フォローしているユーザーのidを元に投稿内容を取得
+        $posts = Post::with('user')->whereIn('user_id', $following_id)->get();
+
+        return view('followList', compact(‘posts’));
+    }
 
 
 }

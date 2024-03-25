@@ -3,6 +3,14 @@
 @section('content')
 
 <div class="container">
+    <div class="profile">
+        <h1>プロフィール</h1>
+        <div class="profile">
+        <h1>{{ $user->name }}のプロフィール</h1>
+        <!-- ここにプロフィール情報を表示 -->
+    </div>
+    </div>
+
     <h2>プロフィール編集</h2>
     {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!} <!-- enctype属性を追加してファイルのアップロードに対応 -->
 

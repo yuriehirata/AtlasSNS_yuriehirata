@@ -17,8 +17,9 @@
                 <tr>
                     <td>
                         @if($post->user)
-                            <img src="{{ asset('images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon">
-                        @endif                    </td>
+                            <img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ auth()->user()->username }}" class="icon">
+                        @endif
+                    </td>
                     <td class="posts post-user"><?php
                       // 投稿に関連付けられたユーザーオブジェクトを取得
                       $user = \App\User::find($post->user_id);
@@ -61,4 +62,5 @@
                     </form>
                 </div>
             </div>
+    </div>
 @endsection

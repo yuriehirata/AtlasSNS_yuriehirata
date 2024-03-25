@@ -45,4 +45,9 @@ class UsersController extends Controller
         ]);
     }
 
+    public function showProfile(User $user)
+    {
+        return view('users.profile', compact('user'));
+    }
+
 }

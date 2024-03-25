@@ -63,4 +63,9 @@ class User extends Authenticatable
         return (boolean) $this->followers()->where('following_id', $user_id)->exists();
     }
 
+    public function isFollowedBy($user_id)
+    {
+        return (boolean) $this->followers()->where('following_id', $user_id)->exists();
+    }
+
 }

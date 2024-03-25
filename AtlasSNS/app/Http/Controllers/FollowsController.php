@@ -6,22 +6,33 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Follow;
 use App\User;
+use App\Post;
 
 class FollowsController extends Controller
 {
     public function show(User $user, Follow $follow)
     {
+        // ログインユーザー名の取得
         $login_user = auth()->user();
         if ($login_user) {
             $is_following = $login_user->isFollowing($user->id);
         } else {
             $is_following = false;
         }
+        // フォローしている人数をカウント
         $follow_count = $follow->getFollowCount($user->id);
+        // フォローされている人数をカウント
         $follower_count = $follow->getFollowerCount($user->id);
-        $followingUsers = Follow::with('followingUser')->where('following_id', auth()->id())->get();
-        $followedUsers = Follow::with('followedUser')->where('followed_id', auth()->id())->get();
-
+        //現在ログインしているユーザーがフォローしているユーザーのIDのリストを取得（pluck→掴み取る）
+        $followingUsers = Follow::where('following_id', auth()->id())->pluck('followed_id');
+        // usersテーブルからidを、$followingusersのidを選択し取得（whereIn→複数の要素を取得）
+        $users = User::whereIn('id',$followingUsers)->get();
+        // 現在ログインしているユーザーをフォローしているユーザーのレコードを取得
+        $followedUsers = Follow::where('followed_id', auth()->id())->get();
+        // フォローしているユーザーの投稿を取得
+        $posts = Post::whereIn('user_id',$followingUsers)->orderBy('created_at', 'desc')->get();
+        // 特定のユーザーが指定したユーザーにフォローされているかどうかを確認するための処理
+        $isFollowed = $user->isFollowedBy(auth()->id());
         // フォローリストを取得
         $following_list = $follow->getFollowList($user->id);
 
@@ -31,10 +42,13 @@ class FollowsController extends Controller
             'follow_count'   => $follow_count,
             'follower_count' => $follower_count,
             'following_list' => $following_list,
-            'followingUsers' => $followingUsers, // 追加
-            'followedUsers' => $followedUsers, // 追加
+            'followingUsers' => $followingUsers,
+            'followedUsers' => $followedUsers,
+            'users' => $users,
+            'posts' => $posts,
         ]);
     }
+
 
     // ユーザーをフォローする
     public function follow(Request $request)
@@ -53,4 +67,15 @@ class FollowsController extends Controller
 
         return redirect()->back()->with('success', 'フォローを解除しました');
     }
+
+    public function followList()
+    {
+        // フォローしているユーザーのidを取得
+        $following_id = Auth::user()->follows()->pluck('followed_id');
+
+        $followings = User::whereIn('user_id', $following_id)->get();
+        // dd($following_id);
+        return view('/follows/followList' , compact('followings'));
+    }
+
 }

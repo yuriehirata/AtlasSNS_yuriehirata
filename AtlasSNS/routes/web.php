@@ -54,6 +54,9 @@ Route::get('/search', 'UsersController@index');
 
 Route::get('/followList', 'FollowsController@show');
 Route::get('/followerList', 'FollowsController@followerList');
+
+Route::get('/followlist','FollowsController@followList');
+
 Route::get('/search', 'UsersController@search');
 
 Route::get('/', function () {
@@ -74,6 +77,11 @@ Route::get('/post/{id}/delete', 'PostsController@delete');
 Route::post('/follow', 'FollowsController@follow')->name('follow');
 Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
+Route::get('/profile/{user}', 'UserController@showProfile')->name('profile.show');
+
+
+
+
 
 
 //ログアウト
@@ -84,6 +92,6 @@ Route::get('/logout', function () {
     return redirect('/login');
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    Route::get('/show', 'FollowsController@show');
-});
+// Route::group(['middleware' => 'auth'], function () {
+//     Route::get('/show', 'FollowsController@show');
+// });

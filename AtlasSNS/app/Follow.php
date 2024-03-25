@@ -10,16 +10,6 @@ class Follow extends Model
         'following_id', 'followed_id'
     ];
 
-    public function followingUser()
-    {
-        return $this->belongsTo(User::class, 'following_id');
-    }
-
-    public function followedUser()
-    {
-        return $this->belongsTo(User::class, 'followed_id');
-    }
-
 
     public function getFollowCount($user_id)
     {
