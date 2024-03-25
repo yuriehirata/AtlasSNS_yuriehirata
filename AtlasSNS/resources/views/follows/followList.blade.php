@@ -8,11 +8,8 @@
 
     {{-- フォローしているユーザーのアイコンを横並べにする --}}
     <div class="following-icons">
-        @foreach($following_list as $following)
-            <div class="following-icon">
-                <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon">
-                <p>{{ $following->username }}</p>
-            </div>
+        @foreach($followingUsers as $follow)
+        <p>{{ $follow->followedUser->username }}</p>
         @endforeach
     </div>
 
@@ -20,8 +17,9 @@
     <div class="latest-posts">
         <h3>フォローしているユーザーの最新のつぶやき</h3>
         <ul>
-            @foreach($following_list as $following)
-                <li>{{ $following->latest_post->content }}</li>
+            @foreach($posts as $following)
+                <li>{{ $following->lates_post->content }}</li>
+                dd()
             @endforeach
         </ul>
     </div>

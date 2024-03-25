@@ -32,7 +32,7 @@
 
         <br>
         <p class="contents-title">{{ Form::label('アイコン画像') }}</p>
-        <p class="subcontents">{{ Form::file('avatar', ['class' => 'input']) }}</p> <!-- アイコン画像のアップロードフィールドを追加 -->
+        <p class="subcontents">{{ Form::file('images', ['class' => 'input']) }}</p> <!-- アイコン画像のアップロードフィールドを追加 -->
 
         <br>
         <p class="btn">{{ Form::submit('更新') }}</p>

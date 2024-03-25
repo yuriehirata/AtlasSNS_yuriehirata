@@ -19,14 +19,25 @@ class ProfileController extends Controller
 
 public function update(Request $request)
 {
-    $username = Auth::user();
-    $username->username = $request->username;
-    $username->mail = $request->mail;
+    $user = Auth::user();
+    $user->username = $request->username;
+    $user->mail = $request->mail;
     if ($request->password) {
-        $username->password = bcrypt($request->password);
+        $user->password = bcrypt($request->password);
     }
-    $username->save();
+
+    // アイコン画像のアップロード処理
+    if ($request->hasFile('images')) {
+        // 画像がアップロードされた場合の処理
+        $image = $request->file('images');
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'), $imageName);
+        $user->images = $imageName; // ユーザー情報に画像ファイル名を保存
+    }
+
+    $user->save();
     return redirect('/profile')->with('success', 'プロフィールを更新しました。');
 }
+
 
 }

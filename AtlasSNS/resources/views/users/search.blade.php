@@ -18,7 +18,7 @@
     <h2>検索結果</h2>
 @if(!is_null($users) && count($users) > 0)
         @foreach($users as $user)
-                <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon">
+                <img src="{{ asset('/images/'.$user->images) }}" alt="{{ auth()->user()->username }}" class="icon">
                 <span>{{ $user->username }}</span>
                     @if(auth()->user()->isFollowing($user->id))
                         {{-- フォロー解除ボタン --}}
