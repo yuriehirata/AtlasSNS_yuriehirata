@@ -10,6 +10,10 @@ class Follow extends Model
         'following_id', 'followed_id'
     ];
 
+    public function isFollowingBy($user_id)
+    {
+        return $this->where('followed_id', $user_id)->exists();
+    }
 
     public function getFollowCount($user_id)
     {

@@ -39,9 +39,9 @@ public function update(Request $request)
     return redirect('/profile')->with('success', 'プロフィールを更新しました。');
 }
 
-public function show(User $user)
+public function profile(User $user)
     {
-        return view('profile', compact('user'));
+        return view('users.profile', compact('user'));
     }
 
 }

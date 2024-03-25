@@ -53,9 +53,10 @@ Route::get('/profile', 'UsersController@profile');
 Route::get('/search', 'UsersController@index');
 
 Route::get('/followList', 'FollowsController@show');
-Route::get('/followerList', 'FollowsController@followerList');
+Route::get('/followerList', 'FollowsController@show_followed');
 
-Route::get('/followlist','FollowsController@followList');
+
+// Route::get('/followlist','FollowsController@followList');
 
 Route::get('/search', 'UsersController@search');
 
@@ -77,7 +78,10 @@ Route::get('/post/{id}/delete', 'PostsController@delete');
 Route::post('/follow', 'FollowsController@follow')->name('follow');
 Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
-Route::get('/profile/{user}', 'UserController@showProfile')->name('profile.show');
+Route::get('/profile/{user}', 'UserController@show')->name('profile.show');
+Route::get('/profile/{user}', 'UserController@profile')->name('profile.show');
+
+
 
 
 
