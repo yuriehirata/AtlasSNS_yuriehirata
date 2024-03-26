@@ -14,8 +14,11 @@
         @endforeach
     </div>
 </div>
-
-
-
-
+@foreach($posts as $post)
+    @if($post->user)
+    <a href="{{ route('profile.show', ['user' => $post->user->id]) }}"><img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
+    @endif
+    <p>名前:{{ $post->user->username }}</p>
+    <p>投稿内容:{{ $post->post }}</p>
+@endforeach
 @endsection
