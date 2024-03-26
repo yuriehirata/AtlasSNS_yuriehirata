@@ -6,7 +6,7 @@
         {{Form::token()}}
         <div class="form-group" style="display: flex;">
             <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon">
-            {!! Form::input('text', 'content', null, ['required', 'class' => 'form-control', 'style' => 'padding: 0; margin: 0; flex: 3;', 'placeholder' => '投稿内容を入力してください。']) !!}
+                {!! Form::input('text', 'content', null, ['required', 'class' => 'form-control', 'style' => 'padding: 0; margin: 0; flex: 3;', 'placeholder' => '投稿内容を入力してください.', 'oninput' => 'if(this.value.length > 150) this.value = this.value.slice(0, 150)']) !!}
             <button type="submit" class="btn-success"><img src="images/post.png" class="btn-post" alt="投稿"></button>
         </div>
         {!! Form::close() !!}
@@ -56,9 +56,9 @@
                 <div class="modal__content">
                     <form action="/post/update" method="POST">
                         @csrf
-                        <textarea name="content" class="modal_post"></textarea>
+                        <textarea name="content" class="modal_post" maxlength="150"></textarea>
                         <input type="hidden" class="modal_id" name="post_id" value="">
-                        <button type="submit" class="btn"><img src="images/edit.png" alt="編集" class="posts-btn btn-success"></button>
+                        <button type="submit" class="modal_success"><img src="images/edit.png" alt="編集" class="modal_success"></button>
                     </form>
                 </div>
             </div>

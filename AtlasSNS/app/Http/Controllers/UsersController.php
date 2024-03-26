@@ -48,12 +48,12 @@ class UsersController extends Controller
 
     public function showProfile(User $user)
     {
-        return view('profile', compact('user'));
+        return view('profile')->with('user', $user);
     }
 
       public function show(User $user)
     {
-        return view('profile', compact('user'));
+        return view('profile')->with('user', $user);
     }
 
 }

@@ -25,9 +25,8 @@
         <a href= "top"><img src="images/atlas.png" alt="AtlasSNS" class="logo"></a>
         </div>
                     <div id = "head">
-                    <p class="right-align">{{ Auth::user()->username }}さん
-                    <button class="menu-toggle dli-chevron-down" aria-controls="menu" aria-expanded="false"></button></p>
-                    </div>
+                    <span class="right-align">{{ Auth::user()->username }}さん
+                    <button class="menu-toggle dli-chevron-down" aria-controls="menu" aria-expanded="false"></button></span>
                 <div class="menu head" id="menu">
                   <ul>
                       <li><a href="/top"><p>HOME</p></a></li>
@@ -35,7 +34,7 @@
                       <li><a href="/logout"><p>ログアウト</p></a></li>
                   </ul>
                 </div>
-        <div id = "head"><img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon"></div>
+    <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon"></div>
     </header>
     <div id="row">
         <div id="container">

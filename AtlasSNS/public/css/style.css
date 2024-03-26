@@ -19,6 +19,7 @@ header {
 
 head {
     display: flex;
+    color: #fff;
 }
 
 button {
@@ -94,7 +95,8 @@ li:hover {
 }
 
 .right-align {
-    text-align: right;
+    text-align: center;
+    color: #fff;
 }
 
 /* メニューのスタイル */
@@ -139,6 +141,23 @@ li:hover {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
+    border-radius: 10px;
+}
+
+.modal_post {
+    width: 500px;
+    height: 170px;
+    align-items: center;
+    /* padding: 50px; */
+    margin-bottom: 10%;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+.modal_success {
+    width: 30px;
+    height: auto;
+    padding-left: 45%;
 }
 
 /* main content */
@@ -259,7 +278,7 @@ li:hover {
 }
 
 .form-group {
-    width: 100%;
+    /* width: 100%; */
     border-bottom: 3px solid #e0e0e0;
     /* 下線のみ表示 */
     padding: 10px;
@@ -318,4 +337,27 @@ li:hover {
     background-color: #00a6f9;
     border-radius: 5px;
     text-align: center;
+}
+
+.search_layout {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.search-form {}
+
+.search-form form {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    margin-bottom: 10%;
+    border-bottom: 3px solid #e0e0e0;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
