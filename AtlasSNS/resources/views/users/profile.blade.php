@@ -3,11 +3,18 @@
 @section('content')
 
 <div class="container">
-
+@if ($errors->any())
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+          @endforeach
+      </ul>
+  </div>
+@endif
 
     <h2>プロフィール編集</h2>
     {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!} <!-- enctype属性を追加してファイルのアップロードに対応 -->
-
     <br>
     <br>
     <br>
@@ -33,9 +40,14 @@
         <p class="subcontents">{{ Form::textarea('bio', Auth::user()->bio, ['class' => 'input']) }}</p> <!-- 自己紹介文のデフォルト値をAuth::user()->bioで設定 -->
 
         <br>
-        <p class="contents-title">{{ Form::label('アイコン画像') }}</p>
-        <p class="subcontents">{{ Form::file('images', ['class' => 'input']) }}</p> <!-- アイコン画像のアップロードフィールドを追加 -->
+        <div id="upload_area" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
+            ドラッグ&ドロップで画像を選択<br>
+            <input type="file" id="file_input" style="display: none;">
+        </div>
+        <p class="contents-title">{{ Form::label('icon', 'アイコン画像') }}</p>
+<p class="subcontents">{{ Form::file('icon', ['class' => 'input']) }}</p>
 
+        <br>
         <br>
         <p class="btn">{{ Form::submit('更新') }}</p>
         <br>

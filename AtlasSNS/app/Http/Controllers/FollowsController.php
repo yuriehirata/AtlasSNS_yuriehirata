@@ -74,13 +74,13 @@ class FollowsController extends Controller
         $followingUsers = Follow::where('following_id', auth()->id())->pluck('followed_id');
         // フォローしているユーザーの投稿を取得
         $posts = Post::whereIn('user_id',$followedUsers)->orderBy('created_at', 'desc')->get();
+        // dd($posts);
         // 特定のユーザーが指定したユーザーにフォローされているかどうかを確認するための処理
         //$isFollowing = $user->isFollowingdBy(auth()->id());
         // フォローリストを取得
         $followed_list = $follow->getFollowerList($user->id);
-        //dd($followed_list);
 
-        return view('follows.followList', [
+        return view('follows.followerList', [
             'user'           => $user,
             'is_followed'   => $is_followed,
             'follow_count'   => $follow_count,

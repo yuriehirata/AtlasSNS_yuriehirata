@@ -46,14 +46,11 @@ class UsersController extends Controller
     }
 
 
-    public function showProfile(User $user)
+    public function showProfile($id)
     {
-        return view('profile')->with('user', $user);
+        $user = User::findOrFail($id);
+        return view('users.profile_show')->with('user', $user);
     }
 
-      public function show(User $user)
-    {
-        return view('profile')->with('user', $user);
-    }
 
 }

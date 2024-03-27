@@ -163,16 +163,16 @@ li:hover {
 /* main content */
 #row {
     display: flex;
-
-    .small-image {
-        max-width: 200px;
-        /* 最大幅を指定 */
-        height: auto;
-        /* 高さを自動調整 */
-    }
-
     flex-flow: row wrap;
 }
+
+.small-image {
+    max-width: 200px;
+    /* 最大幅を指定 */
+    height: auto;
+    /* 高さを自動調整 */
+}
+
 
 #container {
     flex: 0 0 80%;
@@ -252,8 +252,6 @@ li:hover {
 
 .posts-btn {
     display: flex;
-    /* flex-direction: column; */
-    /* justify-content: flex-end; */
 }
 
 .btn-search {
@@ -275,6 +273,16 @@ li:hover {
     transform: translateX(-70%); */
     border: none;
 
+}
+
+.form_style {
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    /* フォームの背景色 */
+    padding: 20px;
+    /* フォームの余白 *
 }
 
 .form-group {
@@ -320,7 +328,7 @@ li:hover {
 .transparent-border {
     margin-bottom: 10%;
     margin-left: 10%;
-    padding: 10px;
+    padding: 30px;
 }
 
 .unfollow_btn {
@@ -360,4 +368,19 @@ li:hover {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.contents-title {
+    text-align: left;
+    font-size: 12px;
+    /* background-color: #e0e0e0; */
+    font-family: "adobe-clean";
+    margin-left: 25%;
+}
+
+.subcontents {
+    text-align: center;
+    font-size: 12px;
+    /* background-color: #e0e0e0; */
+    font-family: "adobe-clean";
 }

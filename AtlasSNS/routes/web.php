@@ -29,9 +29,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
 
     // ユーザ関連
-    Route::resource('users', 'UsersController');
+Route::resource('users', 'UsersController');
 
-    Route::post('/posts', 'PostsController@store')->name('post.index');
+Route::post('/posts', 'PostsController@store')->name('post.index');
 });
 
 
@@ -46,45 +46,44 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 //ログイン中のページ
+// トップページへ遷移
 Route::get('/top', 'PostsController@index')->name('top');
 
-Route::get('/profile', 'UsersController@profile');
-
-Route::get('/search', 'UsersController@index');
-
+//フォローリスト、フォロワーリストページへ遷移
 Route::get('/followList', 'FollowsController@show');
 Route::get('/followerList', 'FollowsController@show_follower');
 
+// プロフィール編集
+Route::get('/users/{user}/profile', 'UsersController@showProfile')->name('showProfile');
+Route::get('/profile', 'UsersController@profile');
+
+// ユーザー検索
+Route::get('/search', 'UsersController@index');
+Route::get('/search', 'UsersController@search');
+
+// ポスト表示
+Route::post('/posts', 'PostsController@store');
+Route::post('/posts/{id}', 'PostsController@updateForm')->name('posts.update');
+
+// プロフィール編集
+Route::get('/profile/edit', 'ProfileController@edit');
+Route::post('/profile/update', 'ProfileController@update');
+
+// ポスト編集・削除
+Route::post('/post/update', 'PostsController@update');
+Route::get('/post/{id}/delete', 'PostsController@delete');
+
+// フォロー・フォロワーのポスト表示
+Route::post('/follow', 'FollowsController@follow')->name('follow');
+Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
+
+
 Route::get('/users/{id}/profile', 'UsersController@showProfile')->name('profile.show');
 
-Route::get('/search', 'UsersController@search');
 
 Route::get('/', function () {
     return view('layouts/app');
 });
-
-Route::post('/posts', 'PostsController@store');
-
-Route::post('/posts/{id}', 'PostsController@updateForm')->name('posts.update');
-
-Route::get('/profile/edit', 'ProfileController@edit');
-Route::post('/profile/update', 'ProfileController@update');
-
-Route::post('/post/update', 'PostsController@update');
-
-Route::get('/post/{id}/delete', 'PostsController@delete');
-
-Route::post('/follow', 'FollowsController@follow')->name('follow');
-Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
-
-Route::get('/profile/{user}', 'UserController@show')->name('profile.show');
-Route::get('/profile/{user}', 'UserController@profile')->name('profile.show');
-
-
-
-
-
-
 
 
 //ログアウト
@@ -94,7 +93,3 @@ Route::get('/logout', function () {
     // ログイン画面にリダイレクト
     return redirect('/login');
 });
-
-// Route::group(['middleware' => 'auth'], function () {
-//     Route::get('/show', 'FollowsController@show');
-// });

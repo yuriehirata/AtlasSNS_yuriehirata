@@ -37,42 +37,6 @@ $(function () {
   });
 });
 
-// // モーダル内でのフォームの送信処理
-// function submitModalForm() {
-//   // フォームデータを取得
-//   var formData = $('.modal_form').serialize();
-
-//   // 更新処理の定義
-//   function updatePost(postId) {
-//     // フォームデータをサーバーに送信
-//     $.ajax({
-//       url: '/posts/update', // 送信先のURLを指定
-//       type: 'POST', // POSTリクエストを送信
-//       data: formData, // フォームデータを送信
-//       success: function (response) {
-//         // 送信が成功した場合の処理
-//         console.log('Form submitted successfully!');
-//         // 必要な処理を追加
-//       },
-//       error: function (xhr, status, error) {
-//         // 送信が失敗した場合の処理
-//         console.error('Form submission failed:', error);
-//         // 必要なエラー処理を追加
-//       }
-//     });
-//   }
-
-// 更新処理を呼び出す
-// updatePost({{ $post-> id }});
-// }
-
-
-
-// // 更新処理を呼び出す
-// updatePost();
-// }
-
-
 // 背景部分や閉じるボタン(js-modal-close)が押されたらモーダルを閉じる処理を実行
 $(function () {
   $('.js-modal-close').on('click', function () {
@@ -89,29 +53,37 @@ function changeImageAndStyle(elementId, newImageSrc) {
 }
 
 
-//   // 背景部分や閉じるボタン(js-modal-close)が押されたら発火
-//   $('.js-modal-close').on('click', function () {
-//     // モーダルの中身(class="js-modal")を非表示
-//     $('.js-modal').fadeOut();
-//     return false;
-//   });
-// });
 
+document.getElementById('upload_area').addEventListener('dragover', function (event) {
+  event.preventDefault();
+  this.style.border = '2px dashed #666';
+});
 
+document.getElementById('upload_area').addEventListener('dragleave', function (event) {
+  event.preventDefault();
+  this.style.border = '2px dashed #ccc';
+});
 
+document.getElementById('upload_area').addEventListener('drop', function (event) {
+  event.preventDefault();
+  this.style.border = '2px dashed #ccc';
+  var file = event.dataTransfer.files[0];
+  previewImage(file);
+});
 
-// // Ajaxリクエストを使用してデータを送信
-// var xhr = new XMLHttpRequest();
-// xhr.open('POST', '/posts/' + postId + '/update', true);
-// xhr.setRequestHeader('Content-Type', 'application/json');
-// xhr.onload = function () {
-//   if (xhr.status === 200) {
-//     // 成功した場合の処理
-//     alert('投稿内容が更新されました');
-//   } else {
-//     // 失敗した場合の処理
-//     alert('更新に失敗しました');
-//   }
-// };
-// xhr.send(JSON.stringify({ content: postContent }));
-// }
+document.getElementById('file_input').addEventListener('change', function (event) {
+  var file = event.target.files[0];
+  previewImage(file);
+});
+
+function previewImage(file) {
+  var reader = new FileReader();
+  reader.onload = function (event) {
+    var img = document.createElement('img');
+    img.src = event.target.result;
+    img.style.maxWidth = '100%';
+    document.getElementById('upload_area').innerHTML = '';
+    document.getElementById('upload_area').appendChild(img);
+  };
+  reader.readAsDataURL(file);
+}
