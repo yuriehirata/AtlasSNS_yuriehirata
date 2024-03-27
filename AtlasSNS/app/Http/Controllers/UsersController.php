@@ -49,7 +49,7 @@ class UsersController extends Controller
     public function showProfile($id)
     {
         $user = User::findOrFail($id);
-        return view('users.profile_show')->with('user', $user);
+        return view('users.profile')->with('user', $user);
     }
 
 

@@ -27,6 +27,11 @@ button {
     border: none;
 }
 
+a {
+    text-decoration: none;
+    /* リンクの下線を消す */
+}
+
 a:visited {
     color: inherit;
     /* 親要素の色を継承 */
@@ -184,7 +189,7 @@ li:hover {
 }
 
 .btn {
-    width: 30px;
+    width: 3.5rem;
     /* 最大幅を指定 */
     height: auto;
     /* 高さを自動調整 */
@@ -193,7 +198,7 @@ li:hover {
 }
 
 .trash-btn {
-    width: 30px;
+    /* width: 30%; */
     height: auto;
     margin: 0px;
     border-radius: 5px;
@@ -207,7 +212,7 @@ li:hover {
 }
 
 .btn-post {
-    width: 30px;
+    width: 3.5rem;
     height: auto;
     margin: 0px;
     border-radius: 5px;
@@ -334,6 +339,7 @@ li:hover {
 .unfollow_btn {
     width: auto;
     height: 30px;
+    color: #fff;
     background-color: #f91b1f;
     border-radius: 5px;
     text-align: center;
@@ -342,6 +348,7 @@ li:hover {
 .follow_btn {
     width: auto;
     height: 30px;
+    color: #fff;
     background-color: #00a6f9;
     border-radius: 5px;
     text-align: center;

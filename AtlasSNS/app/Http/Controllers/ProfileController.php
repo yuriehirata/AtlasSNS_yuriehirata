@@ -73,9 +73,17 @@ public function update(Request $request)
     return redirect('/profile')->with('success', 'プロフィールを更新しました。');
 }
 
-// ユーザープロフィールを表示
-public function profile(User $user)
-{
-    return view('users.profile', ['user' => $user]);
-}
+    // ユーザープロフィールを表示
+    public function profile(User $user)
+    {
+        return view('users.profile', ['user' => $user]);
+    }
+    // ユーザーのポスト情報を取得（最新のものから）
+    public function show(User $user)
+    {
+        dd('$user');
+        $posts = $user->posts()->latest()->get();
+        return view('profile', compact('user', 'posts'));
+    }
+
 }

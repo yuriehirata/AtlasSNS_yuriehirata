@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
     <!--スマホ,タブレット対応-->
@@ -22,7 +24,7 @@
 <body>
     <header>
         <div id = "head">
-        <a href= "top"><img src="images/atlas.png" alt="AtlasSNS" class="logo"></a>
+        <a href= "{{ route('top') }}"><img src="{{ asset('/images/atlas.png') }}" alt="AtlasSNS" class="logo"></a>
         </div>
                     <div id = "head">
                     <span class="right-align">{{ Auth::user()->username }}さん
@@ -47,14 +49,14 @@
                 <p>フォロー数</p>
                 <p>{{ Auth::user()->followingCount() }}名</p>
                 </div>
-                <p class="btn-search"><a href="followList">フォローリスト</a></p>
+                <p class="btn-search"><a href="{{ route('followList') }}">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>{{ Auth::user()->followerCount() }}名</p>
                 </div>
-                <p class="btn-search"><a href="followerList">フォロワーリスト</a></p>
+                <p class="btn-search"><a href="{{ route('followerList') }}">フォロワーリスト</a></p>
             </div>
-            <p class="btn-search"><a href="search">ユーザー検索</a></p>
+            <p class="btn-search"><a href="{{ route('search') }}">ユーザー検索</a></p>
         </div>
     </div>
 

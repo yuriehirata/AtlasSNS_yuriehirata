@@ -50,16 +50,17 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::get('/top', 'PostsController@index')->name('top');
 
 //フォローリスト、フォロワーリストページへ遷移
-Route::get('/followList', 'FollowsController@show');
-Route::get('/followerList', 'FollowsController@show_follower');
+Route::get('/followList', 'FollowsController@show')->name('followList');
+Route::get('/followerList', 'FollowsController@show_follower')->name('followerList');
 
 // プロフィール編集
 Route::get('/users/{user}/profile', 'UsersController@showProfile')->name('showProfile');
-Route::get('/profile', 'UsersController@profile');
+Route::get('/users/{id}/profile', 'UsersController@showProfile')->name('profile.show');
+// Route::get('/profile', 'UsersController@profile');
 
 // ユーザー検索
-Route::get('/search', 'UsersController@index');
-Route::get('/search', 'UsersController@search');
+Route::get('/search', 'UsersController@index')->name('search');
+Route::get('/search', 'UsersController@search')->name('search');
 
 // ポスト表示
 Route::post('/posts', 'PostsController@store');
@@ -78,7 +79,7 @@ Route::post('/follow', 'FollowsController@follow')->name('follow');
 Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
 
-Route::get('/users/{id}/profile', 'UsersController@showProfile')->name('profile.show');
+Route::get('/users/{id}', 'ProfileController@show');
 
 
 Route::get('/', function () {

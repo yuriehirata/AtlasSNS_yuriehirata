@@ -40,10 +40,6 @@
         <p class="subcontents">{{ Form::textarea('bio', Auth::user()->bio, ['class' => 'input']) }}</p> <!-- 自己紹介文のデフォルト値をAuth::user()->bioで設定 -->
 
         <br>
-        <div id="upload_area" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
-            ドラッグ&ドロップで画像を選択<br>
-            <input type="file" id="file_input" style="display: none;">
-        </div>
         <p class="contents-title">{{ Form::label('icon', 'アイコン画像') }}</p>
 <p class="subcontents">{{ Form::file('icon', ['class' => 'input']) }}</p>
 
