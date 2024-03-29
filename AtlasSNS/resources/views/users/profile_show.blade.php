@@ -28,6 +28,9 @@
     </form>
       @endif
     </td>
+    <br>
+    <hr>
+    <br>
   <table>
     @foreach($posts as $post)
     <tr>

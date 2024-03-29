@@ -27,8 +27,8 @@
     <a href="{{ route('usersProfile', ['id' => $post->user->id]) }}">
         <img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
     @endif
-    <td>名前:{{ $post->user->username }}</td>
-    <td>投稿内容:{{ $post->post }}</td>
+    <td>{{ $post->user->username }}</td>
+    <td>{{ $post->post }}</td>
     <br>
     <hr>
 @endforeach

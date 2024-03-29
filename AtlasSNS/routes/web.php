@@ -64,8 +64,10 @@ Route::post('/posts', 'PostsController@store');
 Route::post('/posts/{id}', 'PostsController@updateForm')->name('posts.update');
 
 // プロフィール編集
-Route::get('/profile/edit', 'ProfileController@edit');
-Route::post('/profile/update', 'ProfileController@update');
+// Route::get('/profile/edit', 'ProfileController@edit');
+// Route::post('/profile/update', 'ProfileController@update');
+Route::get('/profile', 'ProfileController@edit')->name('profile');
+
 
 // ポスト編集・削除
 Route::post('/post/update', 'PostsController@update');

@@ -20,6 +20,7 @@ header {
 head {
     display: flex;
     color: #fff;
+    align-items: center;
 }
 
 .topline {
@@ -126,6 +127,40 @@ li:hover {
     display: block;
 }
 
+.post {
+    display: block;
+    border-bottom: 1px solid #727272;
+}
+
+.flex {
+    display: block;
+    /* justify-content: space-between; */
+    border-bottom: 1px solid #727272;
+    align-items: center;
+}
+
+.left {
+    width: 10%;
+    height: auto;
+
+}
+
+.center {
+    width: 70%;
+    height: auto;
+}
+
+.right {
+    width: 20%;
+    height: auto;
+}
+
+.right_btn {
+    display: grid;
+    position: relative;
+    right: 20%;
+}
+
 /* モーダル */
 
 .content {
@@ -203,29 +238,26 @@ li:hover {
     /* 最大幅を指定 */
     height: auto;
     /* 高さを自動調整 */
-    margin: 0px;
     border-radius: 5px;
 }
 
 .trash-btn {
     /* width: 30%; */
     height: auto;
-    margin: 0px;
     border-radius: 5px;
 }
 
 .btn-success {
     width: 30px;
     height: auto;
-    margin: 0 80px;
     border-radius: 5px;
 }
 
 .btn-post {
     width: 3rem;
     height: auto;
-    margin: 0px;
     border-radius: 5px;
+    padding-right: 20%;
 }
 
 .btn-danger {
@@ -367,8 +399,8 @@ li:hover {
 .search_layout {
     display: flex;
     justify-content: space-between;
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .search-form {}
@@ -400,4 +432,8 @@ li:hover {
     font-size: 12px;
     /* background-color: #e0e0e0; */
     font-family: "adobe-clean";
+}
+
+.search_layout_item {
+    justify-content: space-between;
 }
