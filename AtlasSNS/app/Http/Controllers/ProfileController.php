@@ -79,11 +79,12 @@ public function update(Request $request)
         return view('users.profile', ['user' => $user]);
     }
     // ユーザーのポスト情報を取得（最新のものから）
-    public function show(User $user)
+    public function showUser($id)
     {
-        dd('$user');
+        $user = User::find($id);
         $posts = $user->posts()->latest()->get();
-        return view('profile', compact('user', 'posts'));
+        //dd($posts);
+        return view('users.profile_show', compact('user', 'posts'));
     }
 
 }

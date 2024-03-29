@@ -22,6 +22,16 @@ head {
     color: #fff;
 }
 
+.topline {
+    border-bottom: 10px;
+    color: #727272;
+}
+
+.line {
+    border-bottom: 1px;
+    color: #727272;
+}
+
 button {
     background-color: transparent;
     border: none;
@@ -212,7 +222,7 @@ li:hover {
 }
 
 .btn-post {
-    width: 3.5rem;
+    width: 3rem;
     height: auto;
     margin: 0px;
     border-radius: 5px;
@@ -247,7 +257,7 @@ li:hover {
 .post-contents {
     text-align: left;
     font-size: small;
-    width: 60%;
+    /* width: 60%; */
 }
 
 .post-time {
@@ -327,7 +337,7 @@ li:hover {
     /* 最大幅を指定 */
     height: 40px;
     /* 高さを自動調整 */
-    margin: 10px;
+    /* margin: 15px; */
 }
 
 .transparent-border {

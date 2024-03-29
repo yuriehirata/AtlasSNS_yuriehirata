@@ -3,23 +3,33 @@
 @section('content')
 {{-- followList.blade.php --}}
 {!! Form::open(['url' => '/followList']) !!}
-
-<div class="">
+<table>
     <h1>[ フォローリスト ]</h1>
-    <div class="follow_icon">
+    <tr>
+    <td class="follow_icon">
         @foreach ($users as $followed)
-        <a href="{{  route('/users/' . $followed->id)  }}">
-            <img src="{{ asset('/images/' .$followed->images) }}" alt="フォローアイコン">
+        <a href="{{ route('usersProfile', ['id' => $followed->id]) }}">
+            <img src="{{ asset('/images/' .$followed->images) }}" alt="フォローアイコン" class="post-contents icon">
         </a>
         @endforeach
-    </div>
-</div>
+    </td>
+</tr>
+</table>
 
+<hr class=line>
+
+
+    <tr>
 @foreach($posts as $post)
     @if($post->user)
-    <a href="{{ route('/users/' . $post->user->id) }}"><img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
+    <a href="{{ route('usersProfile', ['id' => $post->user->id]) }}">
+        <img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
     @endif
-    <p>名前:{{ $post->user->username }}</p>
-    <p>投稿内容:{{ $post->post }}</p>
+    <td>名前:{{ $post->user->username }}</td>
+    <td>投稿内容:{{ $post->post }}</td>
+    <br>
+    <hr>
 @endforeach
+    </tr>
+
 @endsection

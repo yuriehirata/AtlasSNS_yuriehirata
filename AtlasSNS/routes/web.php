@@ -28,9 +28,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ログイン状態
 Route::group(['middleware' => 'auth'], function () {
 
-    // ユーザ関連
-Route::resource('users', 'UsersController');
-
 Route::post('/posts', 'PostsController@store')->name('post.index');
 });
 
@@ -78,8 +75,8 @@ Route::get('/post/{id}/delete', 'PostsController@delete');
 Route::post('/follow', 'FollowsController@follow')->name('follow');
 Route::post('/unfollow', 'FollowsController@unfollow')->name('unfollow');
 
-
-Route::get('/users/{id}', 'ProfileController@show');
+// 他ユーザーのプロフィール表示
+Route::get('/users/{id}', 'ProfileController@showUser')->name('usersProfile');
 
 
 Route::get('/', function () {

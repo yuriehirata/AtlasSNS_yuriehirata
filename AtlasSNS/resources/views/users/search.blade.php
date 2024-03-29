@@ -22,7 +22,7 @@
         @foreach($users as $user)
 <div class="search_layout">
     <span class="search_layout_item">
-        <a href="{{ route('profile.show', ['id' => $user->id]) }}"><img src="{{ asset('/images/'.$user->images) }}" alt="{{ auth()->user()->username }}" class="icon"></a>
+        <a href="{{ route('usersProfile', ['id' => $user->id]) }}"><img src="{{ asset('/images/'.$user->images) }}" alt="{{ auth()->user()->username }}" class="icon"></a>
     </span>
 
 

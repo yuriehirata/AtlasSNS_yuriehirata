@@ -87,3 +87,15 @@ function previewImage(file) {
   };
   reader.readAsDataURL(file);
 }
+
+function submitForm(formId) {
+  document.getElementById(formId).submit();
+}
+
+function handleFollow(action, formId) {
+  submitForm(formId); // フォームを送信
+  // フォロー解除の場合はリロード
+  if (action === 'unfollow') {
+    location.reload();
+  }
+}

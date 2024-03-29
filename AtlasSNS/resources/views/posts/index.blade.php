@@ -10,7 +10,9 @@
             <button type="submit" class="btn-success"><img src="images/post.png" class="btn-post" alt="投稿"></button>
         </div>
         {!! Form::close() !!}
-
+        <br>
+        <br>
+<hr class=topline>
         <table class="table table-hover">
 
                 @foreach ($posts as $post)
@@ -43,9 +45,10 @@
                         <img src="images/trash.png" alt="削除" class="btn trash-btn" id="deleteButton{{$post->id}}" onmouseover="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash-h.png')" onmouseout="changeImageAndStyle('deleteButton{{$post->id}}', 'images/trash.png')">
                         </a>
 
+                        <hr class=line>
                     </td>
-
                     @endif
+
                 </tr>
                 @endforeach
         </table>

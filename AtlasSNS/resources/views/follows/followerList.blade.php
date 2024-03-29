@@ -5,22 +5,33 @@
     {!! Form::open(['url' => '/followerList']) !!}
 
     <!-- フォローされている人のアイコン一覧 -->
-<div class="">
+<table>
     <h1>[ フォロワーリスト ]</h1>
-    <div class="follow_icon">
+    <tr>
+    <td class="follow_icon">
         @foreach ($users as $follower)
-        <a href="{{ route('/users/' . $follower->id) }}">
-            <img src="{{ asset('/images/' . $follower->images) }}" alt="フォローアイコン">
+        <a href="{{ route('usersProfile', ['id' => $follower->id]) }}">
+            <img src="{{ asset('/images/' . $follower->images) }}" alt="フォローアイコン" class="post-contents icon">
         </a>
         @endforeach
-    </div>
-</div>
+    </td>
+</tr>
+</table>
+
+<hr class=line>
+
+
+    <tr>
 @foreach($posts as $post)
     @if($post->user)
-    <a href="{{ route('/users/' . $post->user->id) }}">
+    <a href="{{ route('usersProfile', ['id' => $post->user->id]) }}">
         <img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
     @endif
-    <p>名前:{{ $post->user->username }}</p>
-    <p>投稿内容:{{ $post->post }}</p>
+    <td>名前:{{ $post->user->username }}</td>
+    <td>投稿内容:{{ $post->post }}</td>
+    <br>
+    <hr>
 @endforeach
+    </tr>
+
 @endsection

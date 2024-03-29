@@ -56,6 +56,7 @@
                 </div>
                 <p class="btn-search"><a href="{{ route('followerList') }}">フォロワーリスト</a></p>
             </div>
+    <hr>
             <p class="btn-search"><a href="{{ route('search') }}">ユーザー検索</a></p>
         </div>
     </div>
