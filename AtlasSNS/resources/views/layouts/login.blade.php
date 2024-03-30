@@ -32,7 +32,7 @@
                 <div class="menu head" id="menu">
                   <ul>
                       <li><a href="/top"><p>HOME</p></a></li>
-                      <li><a href="/{{ route('profile') }}"><p>プロフィール編集</p></a></li>
+                      <li><a href="{{ route('profile') }}"><p>プロフィール編集</p></a></li>
                       <li><a href="/logout"><p>ログアウト</p></a></li>
                   </ul>
                 </div>

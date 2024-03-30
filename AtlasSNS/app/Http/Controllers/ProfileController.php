@@ -14,6 +14,7 @@ class ProfileController extends Controller
 {
     // ログインユーザーの情報を取得
     $username = auth()->username();
+    dd($username);
 
     // profile.editビューを表示し、$user変数を渡す
     return view('users.profile', ['user' => $username]);

@@ -17,6 +17,46 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// 初期のプレースホルダーテキスト
+var placeholderText = "投稿内容を入力してください.";
+
+// 要素がフォーカスされたときにプレースホルダーテキストをクリア
+document.getElementById('contentWrapper').addEventListener('focus', function () {
+  if (this.innerText.trim() === placeholderText) {
+    this.innerText = '';
+  }
+});
+
+// 要素がフォーカスを失ったときにプレースホルダーテキストを再表示
+document.getElementById('contentWrapper').addEventListener('blur', function () {
+  if (this.innerText.trim() === '') {
+    this.innerText = placeholderText;
+  }
+});
+
+function submitForm() {
+  // 入力されたテキストを取得してフォームに設定
+  var content = document.getElementById('contentWrapper').innerText;
+  document.querySelector('input[name="content"]').value = content.trim();
+  // フォームを送信
+  document.querySelector('form').submit();
+}
+
+function handleKeyDown(event) {
+  // Shift + Enterの場合は改行せずにフォームを送信
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault(); // デフォルトのEnterの動作を無効化
+    submitForm(); // フォームを送信
+  }
+}
+
+function checkLength() {
+  // 入力文字数をチェックし、150文字を超えた場合はカット
+  var content = document.getElementById('contentWrapper').innerText;
+  if (content.length > 150) {
+    document.getElementById('contentWrapper').innerText = content.slice(0, 150);
+  }
+}
 
 $(function () {
   // 編集ボタン(class="js-modal-open")が押されたら発火
