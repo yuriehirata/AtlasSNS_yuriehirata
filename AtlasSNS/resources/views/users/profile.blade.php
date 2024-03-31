@@ -21,11 +21,11 @@
     <div class="transparent-border">
         <br>
         <p class="contents-title">{{ Form::label('ユーザー名') }}</p>
-        <p class="subcontents">{{ Form::text('username', Auth::user()->username, ['class' => 'input']) }}</p> <!-- ユーザー名のデフォルト値をAuth::user()->usernameで設定 -->
+        <p class="subcontents">{{ Form::text('username', Auth()->user()->username, ['class' => 'input']) }}</p> <!-- ユーザー名のデフォルト値をAuth::user()->usernameで設定 -->
 
         <br>
         <p class="contents-title">{{ Form::label('メールアドレス') }}</p>
-        <p class="subcontents">{{ Form::text('mail', Auth::user()->mail, ['class' => 'input']) }}</p> <!-- メールアドレスのデフォルト値をAuth::user()->mailで設定 -->
+        <p class="subcontents">{{ Form::text('mail', Auth()->user()->mail, ['class' => 'input']) }}</p> <!-- メールアドレスのデフォルト値をAuth::user()->mailで設定 -->
 
         <br>
         <p class="contents-title">{{ Form::label('パスワード') }}</p>
@@ -37,7 +37,7 @@
 
         <br>
         <p class="contents-title">{{ Form::label('自己紹介') }}</p>
-        <p class="subcontents">{{ Form::textarea('bio', Auth::user()->bio, ['class' => 'input']) }}</p> <!-- 自己紹介文のデフォルト値をAuth::user()->bioで設定 -->
+        <p class="subcontents">{{ Form::textarea('bio', Auth()->user()->bio, ['class' => 'input']) }}</p> <!-- 自己紹介文のデフォルト値をAuth::user()->bioで設定 -->
 
         <br>
         <p class="contents-title">{{ Form::label('icon', 'アイコン画像') }}</p>

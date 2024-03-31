@@ -10,14 +10,10 @@ use App\Follow;
 
 class ProfileController extends Controller
 {
- public function edit()
+ public function edit(Request $request)
 {
-    // ログインユーザーの情報を取得
-    $username = auth()->username();
-    dd($username);
-
     // profile.editビューを表示し、$user変数を渡す
-    return view('users.profile', ['user' => $username]);
+    return view('users.profile');
 }
 
 public function update(Request $request)
@@ -28,7 +24,7 @@ public function update(Request $request)
         'mail' => 'required|email|unique:users,mail,'.Auth::id(),
         'password' => 'nullable|string|min:8|max:20',
         'password_confirmation' => 'nullable|same:password',
-        'bio' => 'nullable|string|max:150',
+        'bio' => 'string|max:150',
         'icon' => 'nullable|image|mimes:jpeg,png,bmp,gif,svg|max:2048', // 最大2MBまでの画像
     ], [
         // カスタムエラーメッセージを定義

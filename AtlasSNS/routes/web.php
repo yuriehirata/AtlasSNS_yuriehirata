@@ -42,6 +42,8 @@ Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
+
+Route::group(['middleware' => ['auth']], function() {
 //ログイン中のページ
 // トップページへ遷移
 Route::get('/top', 'PostsController@index')->name('top');
@@ -64,8 +66,8 @@ Route::post('/posts', 'PostsController@store');
 Route::post('/posts/{id}', 'PostsController@updateForm')->name('posts.update');
 
 // プロフィール編集
-// Route::get('/profile/edit', 'ProfileController@edit');
-// Route::post('/profile/update', 'ProfileController@update');
+Route::get('/profile/edit', 'ProfileController@edit');
+Route::post('/profile/update', 'ProfileController@update');
 Route::get('/profile', 'ProfileController@edit')->name('profile');
 
 
@@ -85,6 +87,7 @@ Route::get('/', function () {
     return view('layouts/app');
 });
 
+});
 
 //ログアウト
 Route::get('/logout', function () {
