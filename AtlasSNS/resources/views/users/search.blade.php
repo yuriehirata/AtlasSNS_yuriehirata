@@ -6,7 +6,7 @@
 <div class="search-form">
 <form action="/search" method="GET">
     <input type="text" name="query" placeholder="ユーザー名">
-    <button type="submit"><img src="images/search.png" class="btn btn-post" alt="検索"></button>
+    <button type="submit"><img src="images/search.png" class="btn" alt="検索"></button>
 </form>
 </div>
 
@@ -23,10 +23,7 @@
 <div class="search_layout">
     <span class="search_layout_item">
         <a href="{{ route('usersProfile', ['id' => $user->id]) }}"><img src="{{ asset('/images/'.$user->images) }}" alt="{{ auth()->user()->username }}" class="icon"></a>
-    </span>
 
-
-    <span class="search_layout_item">
         {{ $user->username }}
     </span>
 

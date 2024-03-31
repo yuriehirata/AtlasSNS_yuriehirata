@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Post;
+use App\User;
 use App\Follow;
 
 class PostsController extends Controller
@@ -15,9 +16,16 @@ class PostsController extends Controller
     // 投稿一覧を作成日時で降順にソートして取得
     $posts = Post::orderBy('created_at', 'desc')->get();
 
+    // 各投稿に関連付けられたユーザーオブジェクトを取得
+    $users = [];
+    foreach ($posts as $post) {
+        $user = User::find($post->user_id);
+        $users[$post->id] = $user ? $user->username : '';
+    }
+
 
     // index.blade.php ページにデータを渡して表示
-    return view('posts.index', compact('posts'));
+    return view('posts.index', compact('posts', 'users'));
 }
 
     public function store(Request $request)

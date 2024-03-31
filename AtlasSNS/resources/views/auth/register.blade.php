@@ -19,27 +19,29 @@
 <br>
 <div class=transparent-border>
     <br>
-<h2 class="contents">新規ユーザー登録</h2>
+    <h2 class="contents">新規ユーザー登録</h2>
 
-<p class="contents-title">{{ Form ::label('ユーザー名') }}</p>
-<p class="subcontents">{{ Form::text('username',null,['class' => 'input']) }}</p>
-<br>
-<p class="contents-title">{{ Form::label('メールアドレス') }}</p>
-<p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
-<br>
-<p class="contents-title">{{ Form::label('パスワード') }}</p>
-<p class="subcontents">{{ Form::password('password',null,['class' => 'input']) }}</p>
-<br>
-<p class="contents-title">{{ Form::label('パスワード確認') }}</p>
-<p class="subcontents">{{ Form::password('password_confirmation',null,['class' => 'input']) }}
-<br>
-<button type="submit" class="btn" style="background-color: red; color: white;">登録</button>
-<br>
-<br>
-<br>
-<br>
-<br>
-<p class="subcontents"><a href="/login">ログイン画面へ戻る</a></p>
+    <div class=center>
+        <p class="subcontents">{{ Form ::label('ユーザー名') }}</p>
+        <p class="subcontents">{{ Form::text('username',null,['class' => 'input']) }}</p>
+        <br>
+        <p class="subcontents">{{ Form::label('メールアドレス') }}</p>
+        <p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
+        <br>
+        <p class="subcontents">{{ Form::label('パスワード') }}</p>
+        <p class="subcontents">{{ Form::password('password',null,['class' => 'input']) }}</p>
+        <br>
+        <p class="subcontents">{{ Form::label('パスワード確認') }}</p>
+        <p class="subcontents">{{ Form::password('password_confirmation',null,['class' => 'input']) }}
+        <br>
+        <button type="submit" class="btn" style="background-color: red; color: white;">登録</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="link subcontents"><a href="/login">ログイン画面へ戻る</a></p>
 </div>
 {!! Form::close() !!}
 

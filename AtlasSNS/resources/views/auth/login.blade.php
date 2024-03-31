@@ -5,20 +5,23 @@
 {!! Form::open(['url' => '/login']) !!}
 
 <div class="transparent-border">
-<p class="contents">AtlasSNSへようこそ</p>
+  <p class="contents">AtlasSNSへようこそ</p>
 
-<p class="subcontents">{{ Form::label('メールアドレス') }}</p>
-<p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
-<p class="subcontents">{{ Form::label('パスワード') }}</p>
-<p class="subcontents">{{ Form::password('password',['class' => 'input']) }}</p>
+  <div class=center>
+    <p class="subcontents">{{ Form::label('メールアドレス') }}</p>
+    <p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
+    <br>
+    <p class="subcontents">{{ Form::label('パスワード') }}</p>
+    <p class="subcontents">{{ Form::password('password',['class' => 'input']) }}</p>
+    <br>
+    <p>{{ Form::submit('ログイン',['class' => 'btn']) }}</p>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class="center link"><a href="/register">新規ユーザーの方はこちら</a></p>
 
-<p>{{ Form::submit('ログイン',['class' => 'btn']) }}</p>
-<br>
-<br>
-<br>
-<br>
-<p class="subcontents"><a href="/register">新規ユーザーの方はこちら</a></p>
-
-{!! Form::close() !!}
+  {!! Form::close() !!}
 </div>
 @endsection

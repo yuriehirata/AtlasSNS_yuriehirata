@@ -98,10 +98,10 @@ li {
     display: block;
     border: 1px solid #ccc;
     padding: 20%;
-    margin-bottom: 0px;
-    width: 10rem;
     background-color: #fff;
     text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
 }
 
 li:hover {
@@ -128,38 +128,40 @@ li:hover {
 }
 
 .post {
-    display: block;
+    /* display: flex; */
+    width: 100%;
     border-bottom: 1px solid #727272;
 }
 
 .flex {
-    display: block;
-    /* justify-content: space-between; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-bottom: 1px solid #727272;
     align-items: center;
 }
 
-.left {
+/* .left {
     width: 10%;
     height: auto;
 
-}
+} */
 
-.center {
+/* .center {
     width: 70%;
     height: auto;
-}
+} */
 
-.right {
+/* .right {
     width: 20%;
     height: auto;
-}
+} */
 
-.right_btn {
+/* .right_btn {
     display: grid;
     position: relative;
     right: 20%;
-}
+} */
 
 /* モーダル */
 
@@ -213,7 +215,7 @@ li:hover {
 /* main content */
 #row {
     display: flex;
-    flex-flow: row wrap;
+    /* flex-flow: row wrap; */
 }
 
 .small-image {
@@ -257,7 +259,10 @@ li:hover {
     width: 3rem;
     height: auto;
     border-radius: 5px;
-    padding-right: 20%;
+    /* padding-right: 20%; */
+    position: absolute;
+    left: auto;
+    right: 25%;
 }
 
 .btn-danger {
@@ -278,6 +283,7 @@ li:hover {
 
 .posts {
     display: flex;
+    border-bottom: 1px solid #727272;
 }
 
 .post-user {
@@ -329,11 +335,11 @@ li:hover {
     background-color: #e0e0e0;
     /* フォームの背景色 */
     padding: 20px;
-    /* フォームの余白 *
+    /* フォームの余白 * */
 }
 
 .form-group {
-    /* width: 100%; */
+    width: 100%;
     border-bottom: 3px solid #e0e0e0;
     /* 下線のみ表示 */
     padding: 10px;
@@ -362,6 +368,7 @@ li:hover {
 .table {
     text-align: center;
     margin: auto;
+    border-bottom: 1px solid #727272;
 }
 
 .icon {
@@ -401,9 +408,9 @@ li:hover {
     justify-content: space-between;
     padding-left: 10%;
     padding-right: 10%;
+    padding-bottom: 5%;
 }
 
-.search-form {}
 
 .search-form form {
     display: flex;

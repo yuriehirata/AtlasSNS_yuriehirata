@@ -21,7 +21,7 @@ public function update(Request $request)
     // バリデーションルールを定義
     $request->validate([
         'username' => 'required|min:2|max:12',
-        'mail' => 'required|email|unique:users,mail,'.Auth::id(),
+        'mail' => 'required|email|unique:users,mail,'.Auth::id().'|min:5|max:40',
         'password' => 'nullable|string|min:8|max:20',
         'password_confirmation' => 'nullable|same:password',
         'bio' => 'string|max:150',
@@ -32,6 +32,10 @@ public function update(Request $request)
         'username.min' => 'ユーザー名は2文字以上で入力してください。',
         'username.max' => 'ユーザー名は12文字以内で入力してください。',
         'mail.required' => 'メールアドレスは必須です。',
+        'mail.email' => '有効なメールアドレスを入力してください。',
+        'mail.unique' => 'このメールアドレスは既に使用されています。',
+        'mail.min' => 'メールアドレスは5文字以上で入力してください。',
+        'mail.max' => 'メールアドレスは40文字以内で入力してください。',
         'mail.email' => '有効なメールアドレスを入力してください。',
         'mail.unique' => 'このメールアドレスは既に使用されています。',
         'password.min' => 'パスワードは8文字以上で入力してください。',

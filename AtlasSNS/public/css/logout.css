@@ -4,6 +4,13 @@ html {
     height: 100%;
 }
 
+.header {
+    width: 100%;
+    height: auto;
+    padding-top: 10%;
+    /* padding-bottom: 6%; */
+}
+
 body {
     height: 100%;
     background: linear-gradient(to bottom, #1e90ff, #f9ed3b);
@@ -54,18 +61,43 @@ a:visited {
 }
 
 .contents-title {
-    text-align: left;
+    /* text-align: left; */
     font-size: 12px;
     color: #fff;
     font-family: "adobe-clean";
     margin-left: 25%;
 }
 
+.center {
+    display: block;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
 .subcontents {
-    text-align: center;
+    /* text-align: center; */
     font-size: 12px;
     color: #fff;
     font-family: "adobe-clean";
+}
+
+.link {
+    text-align: center;
+    text-decoration: underline;
+    color: #fff;
+    font-size: small;
+}
+
+.added {
+    text-align: center;
+    color: #fff;
+    font-size: small;
+}
+
+.added-bold {
+    text-align: center;
+    color: #fff;
+    font-size: medium bold;
 }
 
 
@@ -88,10 +120,25 @@ a:visited {
     transform: translateX(-70%);
 }
 
+.btn-center {
+    background-color: red;
+    /* 赤地 */
+    color: white;
+    /* 白字 */
+    padding: 10px 20px;
+    width: fit-content;
+    margin: 10px;
+    /* パディング */
+    border: none;
+    /* ボーダーなし */
+    border-radius: 5px;
+    /* 角丸 */
+}
+
 .transparent-border {
     width: 300px;
-    height: 300px;
-    background-color: rgba(211, 211, 211, 0.3);
+    height: auto;
+    background-color: rgba(130, 130, 130, 0.4);
     /* 半透明の四角形 */
     border-radius: 10px;
     /* 角丸 */
@@ -99,6 +146,9 @@ a:visited {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 2rem;
 }
 
 .form {
