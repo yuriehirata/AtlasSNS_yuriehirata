@@ -92,42 +92,6 @@ function changeImageAndStyle(elementId, newImageSrc) {
   }
 }
 
-
-
-// document.getElementById('upload_area').addEventListener('dragover', function (event) {
-//   event.preventDefault();
-//   this.style.border = '2px dashed #666';
-// });
-
-// document.getElementById('upload_area').addEventListener('dragleave', function (event) {
-//   event.preventDefault();
-//   this.style.border = '2px dashed #ccc';
-// });
-
-// document.getElementById('upload_area').addEventListener('drop', function (event) {
-//   event.preventDefault();
-//   this.style.border = '2px dashed #ccc';
-//   var file = event.dataTransfer.files[0];
-//   previewImage(file);
-// });
-
-// document.getElementById('file_input').addEventListener('change', function (event) {
-//   var file = event.target.files[0];
-//   previewImage(file);
-// });
-
-// function previewImage(file) {
-//   var reader = new FileReader();
-//   reader.onload = function (event) {
-//     var img = document.createElement('img');
-//     img.src = event.target.result;
-//     img.style.maxWidth = '100%';
-//     document.getElementById('upload_area').innerHTML = '';
-//     document.getElementById('upload_area').appendChild(img);
-//   };
-//   reader.readAsDataURL(file);
-// }
-
 function submitForm(formId) {
   document.getElementById(formId).submit();
 }

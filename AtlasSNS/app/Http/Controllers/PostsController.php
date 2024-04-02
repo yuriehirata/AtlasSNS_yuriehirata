@@ -84,20 +84,6 @@ class PostsController extends Controller
         // バリデーションを実行
         $validator = Validator::make($request->all(), $rules);
 
-        // // バリデーションに失敗した場合
-        // if ($validator->fails()) {
-            //     return redirect()->back()
-            //     ->withErrors($validator)
-            //     ->withInput();
-            // }
-
-            // 対象の投稿を取得
-            //     $post_id = Post::findOrFail($id);
-
-            //     // 投稿内容を更新
-            //     $post_id->content = $request->content;
-            //     dd($validator);
-            // $post_id->save();
 
             $id = $request->input('post_id');
             $content = $request->input('content');
