@@ -23,6 +23,14 @@ class PostsController extends Controller
         $users[$post->id] = $user ? $user->username : '';
     }
 
+    // ログインしているユーザーがフォローしているユーザーのIDを取得
+    $followingIds = auth()->user()->follows()->pluck('followed_id')->toArray();
+
+    // ログインしているユーザーのIDとフォローしているユーザーのIDを含む投稿のみを取得
+    $posts = Post::whereIn('user_id', $followingIds)
+                ->orWhere('user_id', auth()->id())
+                ->latest()
+                ->get();
 
     // index.blade.php ページにデータを渡して表示
     return view('posts.index', compact('posts', 'users'));

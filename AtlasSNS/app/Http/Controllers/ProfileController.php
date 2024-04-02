@@ -18,6 +18,7 @@ class ProfileController extends Controller
 
 public function update(Request $request)
 {
+    // dd($request);
     // バリデーションルールを定義
     $request->validate([
         'username' => 'required|min:2|max:12',
@@ -50,9 +51,12 @@ public function update(Request $request)
 
     // ユーザー情報の取得
     $user = Auth::user();
+    // ユーザーのアイコンを取得
+    $icon = $user->images;
 
     // フォームからの入力をユーザーモデルに反映
     $user->fill([
+        'images' => Auth()->user()->images,
         'username' => $request->username,
         'mail' => $request->mail,
         'password' => $request->password ? bcrypt($request->password) : $user->password,
@@ -70,8 +74,9 @@ public function update(Request $request)
     // ユーザー情報の保存
     $user->save();
 
-    // プロフィールページへリダイレクト
-    return redirect('/profile')->with('success', 'プロフィールを更新しました。');
+    // topページへリダイレクト
+    return redirect('/top')->with('success', 'プロフィールを更新しました。');
+
 }
 
     // ユーザープロフィールを表示

@@ -26,16 +26,20 @@
         <div id = "head">
         <a href= "{{ route('top') }}"><img src="{{ asset('/images/atlas.png') }}" alt="AtlasSNS" class="logo"></a>
         </div>
-                    <div id = "head">
-                    <span class="right-align">{{ Auth::user()->username }}さん
-                    <button class="menu-toggle dli-chevron-down" aria-controls="menu" aria-expanded="false"></button></span>
-                <div class="menu head" id="menu">
-                  <ul>
-                      <li><a href="/top"><p>HOME</p></a></li>
-                      <li><a href="{{ route('profile') }}"><p>プロフィール編集</p></a></li>
-                      <li><a href="/logout"><p>ログアウト</p></a></li>
-                  </ul>
-                </div>
+                    <div class="head flex">
+                        <div class="flex">
+                            <span class="right-align">{{ Auth::user()->username }}さん
+                        </div>
+                        <div class="flex">
+                            <button class="menu-toggle dli-chevron-down" aria-controls="menu" aria-expanded="false"></button></span>
+                        </div>
+                        <div class="menu head" id="menu">
+                            <ul>
+                                <li><a href="/top"><p>HOME</p></a></li>
+                                <li><a href="{{ route('profile') }}"><p>プロフィール編集</p></a></li>
+                                <li><a href="/logout"><p>ログアウト</p></a></li>
+                            </ul>
+                    </div>
     <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon"></div>
     </header>
     <div id="row">
@@ -44,20 +48,29 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
-                <div>
-                <p>フォロー数</p>
-                <p>{{ Auth::user()->followingCount() }}名</p>
+                <div class="side-bar">
+                    <p>{{ Auth::user()->username }}さんの</p>
+                    <div class="flex space">
+                        <div>
+                            <p>フォロー数</p>
+                        </div>
+                        <div>
+                            <p>{{ Auth::user()->followingCount() }}名</p>
+                        </div>
+                    </div>
+                        <p class="btn_search"><a href="{{ route('followList') }}">フォローリスト</a></p>
+                    <div class="flex space">
+                        <div>
+                            <p>フォロワー数</p>
+                        </div>
+                        <div>
+                            <p>{{ Auth::user()->followerCount() }}名</p>
+                        </div>
+                    </div>
+                    <p class="btn_search"><a href="{{ route('followerList') }}">フォロワーリスト</a></p>
                 </div>
-                <p class="btn-search"><a href="{{ route('followList') }}">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>{{ Auth::user()->followerCount() }}名</p>
-                </div>
-                <p class="btn-search"><a href="{{ route('followerList') }}">フォロワーリスト</a></p>
             </div>
-    <hr>
-            <p class="btn-search"><a href="{{ route('search') }}">ユーザー検索</a></p>
+            <p class="btn_search_center"><a href="{{ route('search') }}">ユーザー検索</a></p>
         </div>
     </div>
 

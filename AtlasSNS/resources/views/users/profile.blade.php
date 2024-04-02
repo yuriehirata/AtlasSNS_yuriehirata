@@ -3,53 +3,53 @@
 @section('content')
 
 <div class="container">
-@if ($errors->any())
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-          @endforeach
-      </ul>
-  </div>
-@endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
 
-    <h2>プロフィール編集</h2>
-    {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!} <!-- enctype属性を追加してファイルのアップロードに対応 -->
-    <br>
-    <br>
-    <br>
-    <div class="transparent-border">
-        <br>
-        <p class="contents-title">{{ Form::label('ユーザー名') }}</p>
-        <p class="subcontents">{{ Form::text('username', Auth()->user()->username, ['class' => 'input']) }}</p> <!-- ユーザー名のデフォルト値をAuth::user()->usernameで設定 -->
-
-        <br>
-        <p class="contents-title">{{ Form::label('メールアドレス') }}</p>
-        <p class="subcontents">{{ Form::text('mail', Auth()->user()->mail, ['class' => 'input']) }}</p> <!-- メールアドレスのデフォルト値をAuth::user()->mailで設定 -->
-
-        <br>
-        <p class="contents-title">{{ Form::label('パスワード') }}</p>
-        <p class="subcontents">{{ Form::password('password', ['class' => 'input']) }}</p> <!-- パスワードフィールドにtype="password"を設定 -->
-
-        <br>
-        <p class="contents-title">{{ Form::label('パスワード確認') }}</p>
-        <p class="subcontents">{{ Form::password('password_confirmation', ['class' => 'input']) }}</p> <!-- パスワード確認フィールドにtype="password"を設定 -->
-
-        <br>
-        <p class="contents-title">{{ Form::label('自己紹介') }}</p>
-        <p class="subcontents">{{ Form::textarea('bio', Auth()->user()->bio, ['class' => 'input']) }}</p> <!-- 自己紹介文のデフォルト値をAuth::user()->bioで設定 -->
-
-        <br>
-        <p class="contents-title">{{ Form::label('icon', 'アイコン画像') }}</p>
-<p class="subcontents">{{ Form::file('icon', ['class' => 'input']) }}</p>
-
-        <br>
-        <br>
-        <p class="btn">{{ Form::submit('更新') }}</p>
-        <br>
-        <br>
-        <br>
-        <p class="subcontents"><a href="/top">topへ戻る</a></p>
+    {!! Form::open(['url' => '/profile/update', 'enctype' => 'multipart/form-data']) !!}
+    <!-- enctype属性を追加してファイルのアップロードに対応 -->
+    <div>
+        <div class="transparent-border flex">
+            <div>
+                <img src="{{ asset('/images/'.Auth()->user()->images) }}" alt="{{ Auth::user()->username }}" class="icon">
+            </div>
+                <div>
+                    <div class="flex_profile">
+                        <p class="left_profile">{{ Form::label('ユーザー名') }}</p>
+                        <p class="center_profile">{{ Form::text('username', Auth()->user()->username, ['class' => 'input']) }}</p> <!-- ユーザー名のデフォルト値をAuth::user()->usernameで設定 -->
+                    </div>
+                    <div class="flex">
+                        <p class="left_profile">{{ Form::label('メールアドレス') }}</p>
+                        <p class="center_profile">{{ Form::text('mail', Auth()->user()->mail, ['class' => 'input']) }}</p> <!-- メールアドレスのデフォルト値をAuth::user()->mailで設定 -->
+                    </div>
+                    <div class="flex">
+                        <p class="left_profile">{{ Form::label('パスワード') }}</p>
+                        <p class="center_profile">{{ Form::password('password', ['class' => 'input']) }}</p> <!-- パスワードフィールドにtype="password"を設定 -->
+                    </div>
+                    <div class="flex">
+                        <p class="left_profile">{{ Form::label('パスワード確認') }}</p>
+                        <p class="center_profile">{{ Form::password('password_confirmation', ['class' => 'input']) }}</p> <!-- パスワード確認フィールドにtype="password"を設定 -->
+                    </div>
+                    <div class="flex">
+                        <p class="left_profile">{{ Form::label('自己紹介') }}</p>
+                        <p class="center_profile">{{ Form::textarea('bio', Auth()->user()->bio, ['class' => 'input','cols' => 20, 'rows' => 2]) }}</p> <!-- 自己紹介文のデフォルト値をAuth::user()->bioで設定 -->
+                    </div>
+                    <div class="flex">
+                        <p class="left_profile">{{ Form::label('icon', 'アイコン画像') }}</p>
+                        <p class="center_profile">{{ Form::file('icon', ['class' => 'input']) }}</p>
+                    </div>
+                    <div class="center_profile">
+                        <p>{{ Form::submit('更新', ['class' => 'update-btn']) }}</p>
+                    </div>
+                </div>
+        </div>
     </div>
     {!! Form::close() !!}
 </div>

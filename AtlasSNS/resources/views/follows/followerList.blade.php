@@ -5,33 +5,42 @@
     {!! Form::open(['url' => '/followerList']) !!}
 
     <!-- フォローされている人のアイコン一覧 -->
-<table>
-    <h1>[ フォロワーリスト ]</h1>
-    <tr>
-    <td class="follow_icon">
-        @foreach ($users as $follower)
-        <a href="{{ route('usersProfile', ['id' => $follower->id]) }}">
-            <img src="{{ asset('/images/' . $follower->images) }}" alt="フォローアイコン" class="post-contents icon">
-        </a>
-        @endforeach
-    </td>
-</tr>
-</table>
+<div class="form_group flex_follow">
+    <div class="left_follow">
+        <h1>[ フォロワーリスト ]</h1>
+    </div>
+    <div>
+        <div class="center_follow">
+            <div>
+                @foreach ($users as $follower)
+                <a href="{{ route('usersProfile', ['id' => $follower->id]) }}">
+                    <img src="{{ asset('/images/' . $follower->images) }}" alt="フォローアイコン" class="post-contents icon">
+                </a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
 
-<hr class=line>
-
-
-    <tr>
-@foreach($posts as $post)
-    @if($post->user)
-    <a href="{{ route('usersProfile', ['id' => $post->user->id]) }}">
-        <img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
-    @endif
-    <td>{{ $post->user->username }}</td>
-    <td>{{ $post->post }}</td>
-    <br>
-    <hr>
-@endforeach
-    </tr>
+    <div class="flex">
+        <div>
+            @foreach($posts as $post)
+                <div class="post">
+                    @if($post->user)
+                    <div class="left">
+                        <a href="{{ route('usersProfile', ['id' => $post->user->id]) }}">
+                            <img src="{{ asset('/images/'.$post->user->images) }}" alt="{{ $post->user->username }}" class="icon"></a>
+                    </div>
+                    @endif
+                    <div class="center">
+                        <div class="post-user">{{ $post->user->username }}</div>
+                        <div class="post-contents">{{ $post->post }}</div>
+                    </div>
+                    <div class="post-time right">{{ $post->created_at->format('Y-m-d H:i') }}</div>
+                    <br>
+                    </div>
+            @endforeach
+        </div>
+    </div>
 
 @endsection
