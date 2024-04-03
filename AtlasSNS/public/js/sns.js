@@ -18,30 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// function submitForm() {
-//   // 入力されたテキストを取得してフォームに設定
-//   var content = document.getElementById('contentWrapper').innerText;
-//   document.querySelector('input[name="content"]').value = content.trim();
-//   // フォームを送信
-//   document.querySelector('form').submit();
-// }
-
-// function handleKeyDown(event) {
-//   // Shift + Enterの場合は改行せずにフォームを送信
-//   if (event.key === 'Enter' && !event.shiftKey) {
-//     event.preventDefault(); // デフォルトのEnterの動作を無効化
-//     submitForm(); // フォームを送信
-//   }
-// }
-
-// function checkLength() {
-//   // 入力文字数をチェックし、150文字を超えた場合はカット
-//   var content = document.getElementById('contentWrapper').innerText;
-//   if (content.length > 150) {
-//     document.getElementById('contentWrapper').innerText = content.slice(0, 150);
-//   }
-// }
-
+// モーダル
 $(function () {
   // 編集ボタン(class="js-modal-open")が押されたら発火
   $('.js-modal-open').on('click', function () {
@@ -69,17 +46,9 @@ $(function () {
   });
 });
 
-function changeImageAndStyle(elementId, newImageSrc) {
-  var element = document.getElementById(elementId);
-  if (element) {
-    element.src = newImageSrc;
-  }
-}
 
-function submitForm(formId) {
-  document.getElementById(formId).submit();
-}
 
+// フォロー機能
 function handleFollow(action, formId) {
   submitForm(formId); // フォームを送信
   // フォロー解除の場合はリロード
