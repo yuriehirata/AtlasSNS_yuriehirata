@@ -21,7 +21,7 @@
                         </div>
                         <div class="center">
                             <div class="post-user">{{ isset($users[$post->id]) ? $users[$post->id] : '' }}</div>
-                            <div class="post-contents">{{ $post->post }}
+                            <div class="post-contents">{!! nl2br(e($post->post)) !!}
                             </div>
                         </div>
                         <div class="post-time right">{{ $post->created_at->format('Y-m-d H:i') }}
