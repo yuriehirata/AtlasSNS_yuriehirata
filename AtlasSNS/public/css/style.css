@@ -271,6 +271,16 @@ li:hover {
     padding-left: 45%;
 }
 
+.modal_btn {
+    width: 3.5rem;
+    height: auto;
+    border-radius: 5px;
+    align-items: center;
+    position: absolute;
+    top: 70%;
+    left: 45%;
+}
+
 /* ボタン関係 */
 
 .btn {
@@ -486,6 +496,7 @@ li:hover {
 .icon {
     max-width: 40px;
     height: 40px;
+    margin-right: 1rem;
 }
 
 .transparent-border {

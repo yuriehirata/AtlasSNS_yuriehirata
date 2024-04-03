@@ -18,21 +18,21 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // 初期のプレースホルダーテキスト
-var placeholderText = "投稿内容を入力してください.";
+// var placeholderText = "投稿内容を入力してください.";
 
-// 要素がフォーカスされたときにプレースホルダーテキストをクリア
-document.getElementById('contentWrapper').addEventListener('focus', function () {
-  if (this.innerText.trim() === placeholderText) {
-    this.innerText = '';
-  }
-});
+// // 要素がフォーカスされたときにプレースホルダーテキストをクリア
+// document.getElementById('contentWrapper').addEventListener('focus', function () {
+//   if (this.innerText.trim() === placeholderText) {
+//     this.innerText = '';
+//   }
+// });
 
 // 要素がフォーカスを失ったときにプレースホルダーテキストを再表示
-document.getElementById('contentWrapper').addEventListener('blur', function () {
-  if (this.innerText.trim() === '') {
-    this.innerText = placeholderText;
-  }
-});
+// document.getElementById('contentWrapper').addEventListener('blur', function () {
+//   if (this.innerText.trim() === '') {
+//     this.innerText = placeholderText;
+//   }
+// });
 
 function submitForm() {
   // 入力されたテキストを取得してフォームに設定
