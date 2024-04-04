@@ -46,7 +46,18 @@ $(function () {
   });
 });
 
+// 削除ボタン　ホバー
+function changeImageAndStyle(elementId, newImageSrc) {
+  var element = document.getElementById(elementId);
+  if (element) {
+    element.src = newImageSrc;
+  }
+}
 
+//
+function submitForm(formId) {
+  document.getElementById(formId).submit();
+}
 
 // フォロー機能
 function handleFollow(action, formId) {
