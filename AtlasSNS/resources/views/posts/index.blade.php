@@ -1,13 +1,13 @@
 @extends('layouts.login')
 
 @section('content')
-    <div class="container row">
+    <div class="container">
         {!! Form::open(['url' => '/posts']) !!}
             {{ Form::token() }}
             <div class="form_group" style="display: flex;">
                 <img src="{{ asset('/images/'.auth()->user()->images) }}" alt="{{ auth()->user()->username }}" class="icon">
                 {{ Form::textarea('content', null, ['required', 'class' => 'form-control', 'style' => 'padding: 0; margin: 0; flex: 3;', 'placeholder' => '投稿内容を入力してください。', 'maxlength' => '150']) }}
-                <button type="submit" class="btn-success"><img src="images/post.png" class="btn-post" alt="投稿"></button>
+                <button type="submit" class="btn_success"><img src="images/post.png" class="btn-post" alt="投稿"></button>
             </div>
         {!! Form::close() !!}
 
@@ -31,7 +31,7 @@
                                 <div class="right_btn">
                                     <!-- モーダルを開くボタン -->
                                     <div class="right-btn">
-                                        <button class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="btn-success"></button>
+                                        <button class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="images/edit.png" alt="編集" class="btn btn_success"></button>
                                     </div>
                                 </div>
                                 <div class="right_btn">
@@ -55,7 +55,7 @@
                                 @csrf
                                 <textarea name="content" class="modal_post"></textarea>
                                 <input type="hidden" class="modal_id" name="post_id" value="">
-                                <button type="submit" class="modal_btn"><img src="images/edit.png" alt="編集" class="btn-success"></button>
+                                <button type="submit" class="modal_btn"><img src="images/edit.png" alt="編集" class="btn_success_modal"></button>
                             </form>
                         </div>
                 </div>

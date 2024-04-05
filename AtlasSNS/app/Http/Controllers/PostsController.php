@@ -68,33 +68,57 @@ class PostsController extends Controller
     }
 
 
+
     public function updateForm($id)
     {
         $post = Post::where('id', $id)->first();
         return view('posts.index', ['post' => $post]);
     }
+        public function messages()
+    {
+        return [
+            'content.required' => '投稿内容を入力してください。',
+            'content.min' => '投稿内容は少なくとも1文字以上必要です。',
+        ];
+    }
+
+
     public function update(Request $request)
     {
-        //バリデーションルールを定義
+        // バリデーションルールを定義
         $rules = [
-            'message' => 'required|max:150', // 最大文字数150を指定
-            'content' => 'required', // 投稿内容が必須
+            'content' => 'required|min:1', // 投稿内容が必須で、1文字以上
+        ];
+
+        // カスタムエラーメッセージの定義
+        $messages = [
+            'content.required' => '投稿内容は必須です。',
+            'content.min' => '投稿内容は少なくとも1文字以上必要です。',
         ];
 
         // バリデーションを実行
-        $validator = Validator::make($request->all(), $rules);
+        $validator = Validator::make($request->all(), $rules, $messages);
 
+        // バリデーションに失敗した場合
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
-            $id = $request->input('post_id');
-            $content = $request->input('content');
+        // 以下の処理はバリデーションが成功した場合のみ実行される
 
-    Post::where('id',$id)->update([
-        'post' => $content
-    ]);
-    // 更新した投稿のページにリダイレクト
-    return redirect()->route('top');
+        // 投稿の更新処理
+        $id = $request->input('post_id');
+        $content = $request->input('content');
 
+        Post::where('id', $id)->update([
+            'post' => $content
+        ]);
+
+        // 更新した投稿のページにリダイレクト
+        return redirect()->route('top');
     }
+
+
 
     //投稿を削除
     public function delete($id)

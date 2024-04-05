@@ -18,16 +18,21 @@ class ProfileController extends Controller
 
 public function update(Request $request)
 {
-    // dd($request);
-    // バリデーションルールを定義
-    $request->validate([
-        'username' => 'required|min:2|max:12',
-        'mail' => 'required|email|unique:users,mail,'.Auth::id().'|min:5|max:40',
-        'password' => 'nullable|string|min:8|max:20',
-        'password_confirmation' => 'nullable|same:password',
-        'bio' => 'string|max:150',
+   // バリデーションルールを定義
+    $rules = [
+        'username' => 'sometimes|required|min:2|max:12',
+        'mail' => 'sometimes|required|email|unique:users,mail,' . Auth::id() . '|min:5|max:40',
+        'bio' => 'nullable|string|max:150',
         'icon' => 'nullable|image|mimes:jpeg,png,bmp,gif,svg|max:2048', // 最大2MBまでの画像
-    ], [
+    ];
+
+    // パスワードが入力されている場合はバリデーションルールを追加
+    if ($request->filled('password')) {
+        $rules['password'] = 'required|string|min:8|max:20';
+        $rules['password_confirmation'] = 'required|same:password';
+    }
+
+    $request->validate($rules, [
         // カスタムエラーメッセージを定義
         'username.required' => 'ユーザー名は必須です。',
         'username.min' => 'ユーザー名は2文字以上で入力してください。',
@@ -41,6 +46,7 @@ public function update(Request $request)
         'mail.unique' => 'このメールアドレスは既に使用されています。',
         'password.min' => 'パスワードは8文字以上で入力してください。',
         'password.max' => 'パスワードは20文字以内で入力してください。',
+        'password_confirmation.required' => 'パスワード確認用フィールドは必須です。',
         'password_confirmation.same' => 'パスワードが一致しません。',
         'bio.max' => '自己紹介は150文字以内で入力してください。',
         'icon.image' => '画像ファイルを選択してください。',
@@ -48,25 +54,21 @@ public function update(Request $request)
         'icon.max' => '画像ファイルのサイズは2MB以下にしてください。',
     ]);
 
-
     // ユーザー情報の取得
     $user = Auth::user();
-    // ユーザーのアイコンを取得
-    $icon = $user->images;
 
     // フォームからの入力をユーザーモデルに反映
     $user->fill([
-        'images' => Auth()->user()->images,
-        'username' => $request->username,
-        'mail' => $request->mail,
-        'password' => $request->password ? bcrypt($request->password) : $user->password,
-        'bio' => $request->bio,
+        'username' => $request->has('username') ? $request->username : $user->username,
+        'mail' => $request->has('mail') ? $request->mail : $user->mail,
+        'password' => $request->has('password') ? bcrypt($request->password) : $user->password,
+        'bio' => $request->has('bio') ? $request->bio : $user->bio,
     ]);
 
     // アイコン画像のアップロード処理
     if ($request->hasFile('icon')) {
         $image = $request->file('icon');
-        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $imageName);
         $user->images = $imageName;
     }
@@ -76,8 +78,8 @@ public function update(Request $request)
 
     // topページへリダイレクト
     return redirect('/top')->with('success', 'プロフィールを更新しました。');
-
 }
+
 
     // ユーザープロフィールを表示
     public function profile(User $user)

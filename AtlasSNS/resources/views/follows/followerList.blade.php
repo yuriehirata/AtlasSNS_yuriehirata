@@ -22,7 +22,7 @@
     </div>
 </div>
 
-    <div class="flex">
+    <div>
         <div>
             @foreach($posts as $post)
                 <div class="post">
