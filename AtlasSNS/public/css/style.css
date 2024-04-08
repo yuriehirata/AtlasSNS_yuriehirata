@@ -19,6 +19,12 @@ head {
     align-items: center;
 }
 
+.alert {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
 #container {
     flex: 0 0 80%;
     width: 100%;
