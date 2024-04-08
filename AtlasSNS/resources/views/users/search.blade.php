@@ -3,17 +3,21 @@
 @section('content')
 
 <!-- 検索フォーム -->
-<div class="search-form">
-<form action="/search" method="GET">
-    <input type="text" name="query" placeholder="ユーザー名">
-    <button type="submit"><img src="images/search.png" class="btn" alt="検索"></button>
-</form>
-</div>
+<div class="search_flex">
+    <div class="search-form">
+    <form action="/search" method="GET">
+        <input type="text" name="query" placeholder="ユーザー名">
+        <button type="submit"><img src="images/search.png" class="btn" alt="検索"></button>
+    </form>
+    </div>
 
-<!-- 検索ワードの表示 -->
-@if(request()->input('query'))
-    <p>検索ワード: {{ request()->input('query') }}</p>
-@endif
+    <div class="search-form">
+    <!-- 検索ワードの表示 -->
+        @if(request()->input('query'))
+            <p class="search-form">検索ワード: {{ request()->input('query') }}</p>
+        @endif
+    </div>
+</div>
 
 <!-- 検索結果の表示 -->
 <div>

@@ -29,10 +29,10 @@
         <p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
         <br>
         <p class="subcontents">{{ Form::label('パスワード') }}</p>
-        <p class="subcontents">{{ Form::password('password',null,['class' => 'input']) }}</p>
+        <p class="subcontents">{{ Form::password('password',['class' => 'input']) }}</p>
         <br>
         <p class="subcontents">{{ Form::label('パスワード確認') }}</p>
-        <p class="subcontents">{{ Form::password('password_confirmation',null,['class' => 'input']) }}
+        <p class="subcontents">{{ Form::password('password_confirmation',['class' => 'input']) }}
         <br>
         <button type="submit" class="btn" style="background-color: red; color: white;">登録</button>
     </div>

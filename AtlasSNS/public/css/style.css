@@ -54,6 +54,11 @@ head {
     color: #727272;
 }
 
+.top_item {
+    margin: 0;
+    padding: 0;
+}
+
 button {
     background-color: transparent;
     border: none;
@@ -293,6 +298,7 @@ li:hover {
     width: 3.5rem;
     height: auto;
     border-radius: 5px;
+    margin-top: 2rem;
 }
 
 .trash-btn {
@@ -453,17 +459,24 @@ li:hover {
     align-items: center;
     padding: 50px;
     margin-bottom: 10%;
-    border-bottom: 3px solid #e0e0e0;
+    /* border-bottom: 3px solid #e0e0e0; */
 }
 
 .search-form input[type="text"] {
-    padding: 10px;
+    padding: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-top: 2rem;
 }
 
 .search_layout_item {
     justify-content: space-between;
+}
+
+.search_flex {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 3px #e0e0e0;
 }
 
 /* プロフィール編集 */

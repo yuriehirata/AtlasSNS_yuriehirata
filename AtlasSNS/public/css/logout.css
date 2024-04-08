@@ -16,6 +16,14 @@ body {
     background: linear-gradient(to bottom, #1e90ff, #f9ed3b);
 }
 
+.alert {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+    margin-top: 2rem;
+}
+
 button {
     background-color: transparent;
     border: none;
