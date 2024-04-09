@@ -387,20 +387,26 @@ li:hover {
 
 .unfollow_btn {
     width: auto;
-    height: 30px;
+    height: 2rem;
     color: #fff;
     background-color: #f91b1f;
     border-radius: 5px;
     text-align: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: smaller;
 }
 
 .follow_btn {
     width: auto;
-    height: 30px;
+    height: 2rem;
     color: #fff;
     background-color: #00a6f9;
     border-radius: 5px;
     text-align: center;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    font-size: smaller;
 }
 
 .update-btn {
@@ -484,6 +490,8 @@ li:hover {
 
 .search_layout_item {
     justify-content: space-between;
+    align-items: center;
+    display: flex;
 }
 
 .search_flex {
