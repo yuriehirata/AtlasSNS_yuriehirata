@@ -48,7 +48,7 @@
                 <div class="post-contents center">{{ $post->post }}</div>
             </div>
             </div>
-            <div class="post-time right">{{ $post->created_at->format('Y-m-d H:i') }}</div>
+            <div class="post-time_profile right">{{ $post->created_at->format('Y-m-d H:i') }}</div>
         </div>
         @endforeach
     </div>
