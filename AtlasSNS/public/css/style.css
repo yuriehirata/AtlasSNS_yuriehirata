@@ -363,8 +363,8 @@ li:hover {
     background-color: #186AC9;
     color: white;
     font-size: small;
-    padding: 10px 20px;
-    width: 4rem;
+    /* padding: 10px; */
+    width: 3rem;
     margin-top: 2rem;
     border: none;
     border-radius: 5px;
