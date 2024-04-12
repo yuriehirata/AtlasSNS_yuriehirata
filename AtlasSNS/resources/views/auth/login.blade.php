@@ -7,7 +7,7 @@
 <div class="transparent-border">
   <p class="contents">AtlasSNSへようこそ</p>
 
-  <div class=center>
+  <div class="center item_right">
     <p class="subcontents">{{ Form::label('メールアドレス') }}</p>
     <p class="subcontents">{{ Form::text('mail',null,['class' => 'input']) }}</p>
     <br>

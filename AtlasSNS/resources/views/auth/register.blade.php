@@ -17,11 +17,11 @@
 <br>
 <br>
 <br>
-<div class=transparent-border>
+<div class="transparent-border">
     <br>
     <h2 class="contents">新規ユーザー登録</h2>
 
-    <div class=center>
+    <div class="center item_right">
         <p class="subcontents">{{ Form ::label('ユーザー名') }}</p>
         <p class="subcontents">{{ Form::text('username',null,['class' => 'input']) }}</p>
         <br>
@@ -34,7 +34,7 @@
         <p class="subcontents">{{ Form::label('パスワード確認') }}</p>
         <p class="subcontents">{{ Form::password('password_confirmation',['class' => 'input']) }}
         <br>
-        <button type="submit" class="btn" style="background-color: red; color: white;">登録</button>
+        <button type="submit" class="btn register">新規登録</button>
     </div>
     <br>
     <br>

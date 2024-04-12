@@ -413,7 +413,7 @@ li:hover {
     background-color: red;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 0.5rem 3rem;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -476,16 +476,40 @@ li:hover {
 .search-form form {
     display: flex;
     align-items: center;
-    padding: 50px;
+    padding: 2rem;
     margin-bottom: 10%;
+    margin-left: 5%;
     /* border-bottom: 3px solid #e0e0e0; */
 }
 
 .search-form input[type="text"] {
-    padding: 1rem;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 2rem;
+}
+
+/* プロフィール編集 */
+
+.center_profile input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.center_profile input[type="password"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+}
+
+.center_profile textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e0e0e0;
 }
 
 .search_layout_item {
@@ -499,10 +523,8 @@ li:hover {
     align-items: center;
     border-bottom: solid 3px #e0e0e0;
     margin-bottom: 3rem;
-    height: 10%;
+    /* height: 10%; */
 }
-
-/* プロフィール編集 */
 
 .flex_profile {
     display: flex;
@@ -536,6 +558,17 @@ li:hover {
     margin-right: 1rem;
 }
 
+.icon_profile {
+    margin-top: 1rem;
+}
+
+/* .center_profile input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 2rem;
+    background-color: #e0e0e0;
+} */
 
 .table {
     text-align: center;

@@ -26,10 +26,14 @@ public function update(Request $request)
         'icon' => 'nullable|image|mimes:jpeg,png,bmp,gif,svg|max:2048', // 最大2MBまでの画像
     ];
 
-    // パスワードが入力されている場合はバリデーションルールを追加
+    // パスワードが入力されている場合のみ、パスワード関連のバリデーションルールを追加
     if ($request->filled('password')) {
         $rules['password'] = 'required|string|min:8|max:20';
         $rules['password_confirmation'] = 'required|same:password';
+    } else {
+        // パスワードが入力されていない場合は、エラーメッセージを設定してバリデーションを失敗させる
+        $rules['password'] = 'required|present'; // パスワードが存在することを検証
+        $rules['password_confirmation'] = 'required|present'; // 確認用パスワードが存在することを検証
     }
 
     $request->validate($rules, [

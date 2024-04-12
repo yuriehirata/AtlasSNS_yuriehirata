@@ -15,7 +15,7 @@
     <!-- enctype属性を追加してファイルのアップロードに対応 -->
     <div>
         <div class="transparent-border flex">
-            <div>
+            <div class="icon_profile">
                 <img src="{{ asset('/images/'.Auth()->user()->images) }}" alt="{{ Auth::user()->username }}" class="icon">
             </div>
                 <div>
